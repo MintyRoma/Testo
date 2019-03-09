@@ -44,6 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\Mark.cs" />
+    <Compile Include="Elements\Answer.cs" />
+    <Compile Include="Elements\Student.cs" />
+    <Compile Include="Elements\Subject.cs" />
+    <Compile Include="Elements\SubjectProperties.cs" />
+    <Compile Include="Elements\Task.cs" />
+    <Compile Include="Elements\TaskProperties.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
