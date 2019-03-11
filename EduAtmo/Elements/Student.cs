@@ -34,23 +34,23 @@ namespace EduAtmo.Elements
 
         public void CalculateMark(List<Mark> marks)
         {
-            int StPoints=0; //Points of Student
+            double StPoints=0; //Points of Student
             for(int i=0;i<answers.Count();i++)
             {
                 if(rights[i]==true)
                 {
-                    StPoints+=tasks[i].Points;
+                    StPoints+=(double)tasks[i].Points;
                 }
             }
-            int MaxPoints = 0; //Maximum Points
+            double MaxPoints = 0; //Maximum Points
             for (int i = 0; i < answers.Count(); i++)
             {
                 MaxPoints += tasks[i].Points;
             }
-            int[] pointlist = new int[] { }; //Limits of rates
+            double[] pointlist = new double[] { }; //Limits of rates
             for(int i=0;i<marks.Count();i++)
             {
-                pointlist[i] = Convert.ToInt32((marks[i].Rate / 100) * MaxPoints);
+                pointlist[i] = Convert.ToDouble((marks[i].Rate / 100) * MaxPoints);
             }
             for(int i=0;i<pointlist.Count();i++)
             {
