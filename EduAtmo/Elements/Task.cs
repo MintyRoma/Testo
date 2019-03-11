@@ -23,7 +23,7 @@ namespace EduAtmo.Elements
         private int backtimer = -1;
         private List<Answer> answers = new List<Answer>();
         private Answer right;
-        private int points;
+        private double points;
         #endregion
 
         #region Fields
@@ -31,7 +31,7 @@ namespace EduAtmo.Elements
         public string Text { get { return text; } }
         public int ID { get { return id; } }
         public int Timer { get { return backtimer; } }
-        public int Points { get { return points; } }
+        public double Points { get { return points; } }
         #endregion
 
         #region Funcs
