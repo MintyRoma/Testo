@@ -12,7 +12,7 @@ namespace EduAtmo.Elements
         public string name;
         public string text;
         public int time=-1;
-        public int points;
+        public double points;
         #endregion
 
         public bool IsNotEmpty()

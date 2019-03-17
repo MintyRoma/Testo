@@ -39,7 +39,7 @@ namespace EduAtmo.Elements
             {
                 if(rights[i]==true)
                 {
-                    StPoints+=tasks[i].Points;
+                    StPoints+=(double)tasks[i].Points;
                 }
             }
             double MaxPoints = 0; //Maximum Points
@@ -50,7 +50,7 @@ namespace EduAtmo.Elements
             double[] pointlist = new double[] { }; //Limits of rates
             for(int i=0;i<marks.Count();i++)
             {
-                pointlist[i] = Convert.ToInt32((marks[i].Rate / 100) * MaxPoints);
+                pointlist[i] = Convert.ToDouble((marks[i].Rate / 100) * MaxPoints);
             }
             for(int i=0;i<pointlist.Count();i++)
             {
