@@ -9,11 +9,17 @@ using System.Windows.Forms;
 
 namespace EduAtmo
 {
-    public partial class Form1 : Form
+    public partial class StartUp : Form
     {
-        public Form1()
+        public StartUp()
         {
             InitializeComponent();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Shell.Run();
+            timer1.Stop();
         }
     }
 }
