@@ -46,5 +46,20 @@ namespace EduAtmo
         {
             Shell.Close();
         }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            bool active = false;
+            int spacesFIO = 0;
+            for (int i = 0; i < FIOBox.Text.Count(); i++)
+            {
+                if (FIOBox.Text[i] == ' ' && i != 0 && i!=FIOBox.Text.Count()-1)
+                {
+                    if (FIOBox.Text[i - 1] != ' ' || FIOBox.Text[i + 1] != ' ') spacesFIO++;
+                }
+            }
+            if (spacesFIO >= 1 && spacesFIO < 3 && GroupNameBox.Text != "") active = true;
+            StartTestBut.Enabled = active;
+        }
     }
 }

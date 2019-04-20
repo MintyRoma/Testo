@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.FIOBox = new System.Windows.Forms.TextBox();
+            this.GroupNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.StartTestBut = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // ButtonsPanel
@@ -45,19 +47,19 @@
             this.ButtonsPanel.TabIndex = 0;
             this.ButtonsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
-            // textBox1
+            // FIOBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(197, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(408, 20);
-            this.textBox1.TabIndex = 1;
+            this.FIOBox.Location = new System.Drawing.Point(197, 43);
+            this.FIOBox.Name = "FIOBox";
+            this.FIOBox.Size = new System.Drawing.Size(408, 20);
+            this.FIOBox.TabIndex = 1;
             // 
-            // textBox2
+            // GroupNameBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(197, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(408, 20);
-            this.textBox2.TabIndex = 1;
+            this.GroupNameBox.Location = new System.Drawing.Point(197, 89);
+            this.GroupNameBox.Name = "GroupNameBox";
+            this.GroupNameBox.Size = new System.Drawing.Size(408, 20);
+            this.GroupNameBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -86,26 +88,33 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Предмет";
             // 
-            // button1
+            // StartTestBut
             // 
-            this.button1.Location = new System.Drawing.Point(487, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.StartTestBut.Enabled = false;
+            this.StartTestBut.Location = new System.Drawing.Point(487, 415);
+            this.StartTestBut.Name = "StartTestBut";
+            this.StartTestBut.Size = new System.Drawing.Size(117, 23);
+            this.StartTestBut.TabIndex = 5;
+            this.StartTestBut.Text = "Начать тест";
+            this.StartTestBut.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1500;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // StartWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.StartTestBut);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.GroupNameBox);
+            this.Controls.Add(this.FIOBox);
             this.Controls.Add(this.ButtonsPanel);
             this.Name = "StartWindow";
             this.Text = "Form1";
@@ -119,12 +128,13 @@
         #endregion
 
         private System.Windows.Forms.Panel ButtonsPanel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox FIOBox;
+        private System.Windows.Forms.TextBox GroupNameBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button StartTestBut;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

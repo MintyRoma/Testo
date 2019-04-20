@@ -15,6 +15,7 @@ namespace EduAtmo
         public StartUp()
         {
             InitializeComponent();
+            Build.Text += Shell.BUILD;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

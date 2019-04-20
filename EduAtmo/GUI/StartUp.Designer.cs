@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Build = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
@@ -58,16 +58,16 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "GreyBox Builds";
             // 
-            // label3
+            // Build
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(111, 481);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 21);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Build: 10";
+            this.Build.AutoSize = true;
+            this.Build.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Build.ForeColor = System.Drawing.Color.White;
+            this.Build.Location = new System.Drawing.Point(111, 481);
+            this.Build.Name = "Build";
+            this.Build.Size = new System.Drawing.Size(52, 21);
+            this.Build.TabIndex = 2;
+            this.Build.Text = "Build: ";
             // 
             // label4
             // 
@@ -93,7 +93,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(284, 511);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Build);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -108,7 +108,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Build;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer1;
     }
