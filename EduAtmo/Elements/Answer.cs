@@ -14,7 +14,7 @@ namespace EduAtmo.Elements
 
         #region Fields
         public int ID { get { return id; } }
-        public string Text { get { return text} }
+        public string Text { get { return text; } }
         #endregion
 
         #region Funcs
