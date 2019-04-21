@@ -45,7 +45,6 @@
             this.ButtonsPanel.Name = "ButtonsPanel";
             this.ButtonsPanel.Size = new System.Drawing.Size(408, 263);
             this.ButtonsPanel.TabIndex = 0;
-            this.ButtonsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // FIOBox
             // 
@@ -101,7 +100,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1500;
+            this.timer1.Interval = 1250;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // StartWindow
@@ -119,7 +118,6 @@
             this.Name = "StartWindow";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartWindow_FormClosing);
-            this.Load += new System.EventHandler(this.StartWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

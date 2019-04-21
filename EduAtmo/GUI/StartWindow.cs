@@ -15,7 +15,6 @@ namespace EduAtmo
         {
             InitializeComponent();
             InitialSubjects(subs);
-
         }
 
         private void InitialSubjects(string[] subs)
@@ -25,26 +24,23 @@ namespace EduAtmo
                 Button btn = new Button();
                 btn.Name = tmp;
                 btn.Text = tmp;
+                btn.Click += new EventHandler(PresentClick);
                 Point position = new Point(ButtonsPanel.Controls.Count % 3 + 1, ButtonsPanel.Controls.Count / 3 + 1);
                 btn.Size = new Size((ButtonsPanel.Width - 15) / 3, (ButtonsPanel.Height-15)/3);
                 btn.Location = new Point(position.X * 5 + (position.X - 1) * btn.Size.Width, position.Y * 5 + (position.Y - 1) * 50);
                 ButtonsPanel.Controls.Add(btn);
             }
         }
-
-        private void StartWindow_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void StartWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             Shell.Close();
+        }
+
+        private void PresentClick(object sender, System.EventArgs e)
+        {
+            Control ctrl = (Control)sender;
+            Shell.Subject = ctrl.Name;
+            MessageBox.Show(Shell.Subject);
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -58,7 +54,7 @@ namespace EduAtmo
                     if (FIOBox.Text[i - 1] != ' ' || FIOBox.Text[i + 1] != ' ') spacesFIO++;
                 }
             }
-            if (spacesFIO >= 1 && spacesFIO < 3 && GroupNameBox.Text != "") active = true;
+            if (spacesFIO >= 1 && spacesFIO < 3 && GroupNameBox.Text != "" && Shell.Subject!="") active = true;
             StartTestBut.Enabled = active;
         }
     }
