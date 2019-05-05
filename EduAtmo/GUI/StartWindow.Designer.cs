@@ -96,12 +96,13 @@
             this.StartTestBut.TabIndex = 5;
             this.StartTestBut.Text = "Начать тест";
             this.StartTestBut.UseVisualStyleBackColor = true;
+            this.StartTestBut.Click += new System.EventHandler(this.StartTestBut_Click);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1250;
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.StartTest_Tick);
             // 
             // StartWindow
             // 
@@ -115,6 +116,8 @@
             this.Controls.Add(this.GroupNameBox);
             this.Controls.Add(this.FIOBox);
             this.Controls.Add(this.ButtonsPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "StartWindow";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartWindow_FormClosing);

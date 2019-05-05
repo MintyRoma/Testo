@@ -44,14 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\AnswerType.cs" />
     <Compile Include="Elements\Mark.cs" />
     <Compile Include="Elements\Answer.cs" />
+    <Compile Include="Elements\PointScheme.cs" />
     <Compile Include="Elements\Storage.cs" />
     <Compile Include="Elements\Student.cs" />
     <Compile Include="Elements\Subject.cs" />
     <Compile Include="Elements\SubjectProperties.cs" />
     <Compile Include="Elements\Task.cs" />
     <Compile Include="Elements\TaskProperties.cs" />
+    <Compile Include="GUI\ActiveTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ActiveTest.Designer.cs">
+      <DependentUpon>ActiveTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\StartUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +75,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shell.cs" />
+    <EmbeddedResource Include="GUI\ActiveTest.resx">
+      <DependentUpon>ActiveTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\StartWindow.resx">
       <DependentUpon>StartWindow.cs</DependentUpon>
     </EmbeddedResource>

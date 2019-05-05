@@ -39,11 +39,13 @@ namespace EduAtmo
         private void PresentClick(object sender, System.EventArgs e)
         {
             Control ctrl = (Control)sender;
-            Shell.Subject = ctrl.Name;
-            MessageBox.Show(Shell.Subject);
+            Shell.subject = ctrl.Name;
+#if DEBUG
+            MessageBox.Show(Shell.subject);
+#endif
         }
 
-        private void Timer1_Tick(object sender, EventArgs e)
+        private void StartTest_Tick(object sender, EventArgs e)
         {
             bool active = false;
             int spacesFIO = 0;
@@ -54,8 +56,13 @@ namespace EduAtmo
                     if (FIOBox.Text[i - 1] != ' ' || FIOBox.Text[i + 1] != ' ') spacesFIO++;
                 }
             }
-            if (spacesFIO >= 1 && spacesFIO < 3 && GroupNameBox.Text != "" && Shell.Subject!="") active = true;
+            if (spacesFIO >= 1 && spacesFIO < 3 && GroupNameBox.Text != "" && Shell.subject!="") active = true;
             StartTestBut.Enabled = active;
+        }
+
+        private void StartTestBut_Click(object sender, EventArgs e)
+        {
+            Shell.StartTest(FIOBox.Text, GroupNameBox.Text);
         }
     }
 }

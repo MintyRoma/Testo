@@ -10,9 +10,12 @@ namespace EduAtmo.Elements
         #region Fields
         public int id;
         public string name;
-        public string text;
+        public string text= "";
         public int time=-1;
         public double points;
+        public AnswerType answertype;
+        public string righthash;
+        public PointScheme pointscheme;
         #endregion
 
         public bool IsNotEmpty()

@@ -7,22 +7,16 @@ namespace EduAtmo.Elements
 {
     class Task
     {
-        enum AnswerType
-        {
-            Textbox,
-            Checkbox,
-            Radio,
-            Order,
-            Image,
-        };
 
         #region Private Data
+        private AnswerType answerType;
+        private PointScheme pointScheme;
         private string name;
         private string text;
         private int id;
         private int backtimer = -1;
         private List<Answer> answers = new List<Answer>();
-        private Answer right;
+        private string rightHash;
         private double points;
         #endregion
 
@@ -35,12 +29,11 @@ namespace EduAtmo.Elements
         #endregion
 
         #region Funcs
-        public void ImportAnswers(List<Answer> ansrs, Answer whatright)
+        public void ImportAnswers(List<Answer> ansrs)
         {
-            if(ansrs!=null&&whatright!=null)
+            if(ansrs!=null)
             {
                 answers = ansrs;
-                right = whatright;
             }
         }
 
@@ -53,6 +46,8 @@ namespace EduAtmo.Elements
                 text = prop.text;
                 backtimer = prop.time;
                 points = prop.points;
+                rightHash = prop.righthash;
+                pointScheme = prop.pointscheme;
             }
         }
         #endregion
