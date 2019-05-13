@@ -16,6 +16,7 @@ namespace EduAtmo.Elements
         public AnswerType answertype;
         public string righthash;
         public PointScheme pointscheme;
+        public List<Answer> answers;
         #endregion
 
         public bool IsNotEmpty()

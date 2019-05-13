@@ -31,11 +31,11 @@
             this.TestIDLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Labellabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Labellabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,15 +68,13 @@
             this.panel2.Size = new System.Drawing.Size(403, 131);
             this.panel2.TabIndex = 2;
             // 
-            // Labellabel
+            // pictureBox1
             // 
-            this.Labellabel.AutoSize = true;
-            this.Labellabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.Labellabel.Location = new System.Drawing.Point(205, 23);
-            this.Labellabel.Name = "Labellabel";
-            this.Labellabel.Size = new System.Drawing.Size(60, 25);
-            this.Labellabel.TabIndex = 3;
-            this.Labellabel.Text = "LABEL";
+            this.pictureBox1.Location = new System.Drawing.Point(8, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(392, 50);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -87,6 +85,16 @@
             this.label1.Size = new System.Drawing.Size(76, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "TASKTEXT";
+            // 
+            // Labellabel
+            // 
+            this.Labellabel.AutoSize = true;
+            this.Labellabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.Labellabel.Location = new System.Drawing.Point(205, 23);
+            this.Labellabel.Name = "Labellabel";
+            this.Labellabel.Size = new System.Drawing.Size(60, 25);
+            this.Labellabel.TabIndex = 3;
+            this.Labellabel.Text = "LABEL";
             // 
             // label2
             // 
@@ -108,14 +116,6 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "TIME";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(8, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // ActiveTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +131,7 @@
             this.MaximizeBox = false;
             this.Name = "ActiveTest";
             this.Text = "ActiveTest";
+            this.Load += new System.EventHandler(this.ActiveTest_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

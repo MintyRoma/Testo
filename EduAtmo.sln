@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduAtmo", "EduAtmo\EduAtmo.csproj", "{BD2C1049-E38D-40BC-9DE1-40CBD75703F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task Generator", "Task Generator\Task Generator.csproj", "{62A1767B-98E2-4424-918A-54D357FE7AD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BD2C1049-E38D-40BC-9DE1-40CBD75703F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD2C1049-E38D-40BC-9DE1-40CBD75703F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD2C1049-E38D-40BC-9DE1-40CBD75703F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62A1767B-98E2-4424-918A-54D357FE7AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A1767B-98E2-4424-918A-54D357FE7AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A1767B-98E2-4424-918A-54D357FE7AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A1767B-98E2-4424-918A-54D357FE7AD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

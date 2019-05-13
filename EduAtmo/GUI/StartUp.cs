@@ -24,5 +24,10 @@ namespace EduAtmo
             this.Hide();
             timer1.Stop();
         }
+
+        private void StartUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -7,21 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace EduAtmo.GUI
+namespace Task_Generator
 {
-    public partial class ActiveTest : Form
+    public partial class Form1 : Form
     {
-        public ActiveTest()
+        public Form1()
         {
             InitializeComponent();
         }
 
-        private void ActiveTest_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        public void ImportTask(EduAtmo.Elements.Task tsk)
+        private void CreateTask_Click(object sender, EventArgs e)
         {
 
         }

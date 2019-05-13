@@ -5,12 +5,12 @@ using System.Text;
 
 namespace EduAtmo.Elements
 {
-    class Task
+    public class Task
     {
 
         #region Private Data
-        private AnswerType answerType;
-        private PointScheme pointScheme;
+        private AnswerType answerType=AnswerType.Radio;
+        private PointScheme pointScheme=PointScheme.OnlyRight;
         private string name;
         private string text;
         private int id;
@@ -26,10 +26,13 @@ namespace EduAtmo.Elements
         public int ID { get { return id; } }
         public int Timer { get { return backtimer; } }
         public double Points { get { return points; } }
+        public string Right { get { return rightHash; } }
+        public PointScheme Point_Scheme { get { return pointScheme; } }
+
         #endregion
 
         #region Funcs
-        public void ImportAnswers(List<Answer> ansrs)
+        private void ImportAnswers(List<Answer> ansrs)
         {
             if(ansrs!=null)
             {
@@ -48,7 +51,20 @@ namespace EduAtmo.Elements
                 points = prop.points;
                 rightHash = prop.righthash;
                 pointScheme = prop.pointscheme;
+                ImportAnswers(prop.answers);
             }
+        }
+
+        public bool Check()
+        {
+            bool allnorm = true;
+            if (name == null) allnorm = false;
+            if (text == null) allnorm = false;
+            if ((Object)id == null) allnorm = false;
+            if (answers == null) allnorm = false;
+            if (rightHash == null) allnorm = false;
+            if ((Object)points == null) allnorm = false;
+            return allnorm;
         }
         #endregion
     }

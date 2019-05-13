@@ -99,6 +99,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StartUp";
             this.Text = "StartUp";
+            this.Load += new System.EventHandler(this.StartUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
