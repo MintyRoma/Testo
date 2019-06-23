@@ -17,7 +17,7 @@ namespace EduAtmo
         /// <summary>
         /// Build Number
         /// </summary>
-        public static int BUILD = 12;
+        public static int BUILD = 14;
         private static Elements.Storage store = new Storage();
         public static string subject = "";
         #endregion
@@ -52,7 +52,9 @@ namespace EduAtmo
             tsks = ImportTasks();
             MAINSUB.ImportTasks(tsks);
             store.subject = MAINSUB;
-            activetest.
+            activetest = new GUI.ActiveTest();
+            activetest.ImportTask(store.subject.PresentLastTask());
+            activetest.Show();
         }
 
         #endregion

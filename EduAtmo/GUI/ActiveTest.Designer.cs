@@ -31,22 +31,23 @@
             this.TestIDLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TskTextLabel = new System.Windows.Forms.Label();
             this.Labellabel = new System.Windows.Forms.Label();
+            this.SubjectNameLable = new System.Windows.Forms.Label();
+            this.TimeLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // TestIDLabel
             // 
             this.TestIDLabel.AutoSize = true;
-            this.TestIDLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.TestIDLabel.Location = new System.Drawing.Point(56, 23);
+            this.TestIDLabel.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TestIDLabel.Location = new System.Drawing.Point(35, 46);
             this.TestIDLabel.Name = "TestIDLabel";
-            this.TestIDLabel.Size = new System.Drawing.Size(53, 25);
+            this.TestIDLabel.Size = new System.Drawing.Size(73, 35);
             this.TestIDLabel.TabIndex = 0;
             this.TestIDLabel.Text = "NUM";
             // 
@@ -61,30 +62,21 @@
             // panel2
             // 
             this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.TskTextLabel);
             this.panel2.Location = new System.Drawing.Point(202, 54);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(403, 131);
             this.panel2.TabIndex = 2;
             // 
-            // pictureBox1
+            // TskTextLabel
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(8, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(392, 50);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TASKTEXT";
+            this.TskTextLabel.AutoSize = true;
+            this.TskTextLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TskTextLabel.Location = new System.Drawing.Point(4, 4);
+            this.TskTextLabel.Name = "TskTextLabel";
+            this.TskTextLabel.Size = new System.Drawing.Size(76, 20);
+            this.TskTextLabel.TabIndex = 0;
+            this.TskTextLabel.Text = "TASKTEXT";
             // 
             // Labellabel
             // 
@@ -96,25 +88,52 @@
             this.Labellabel.TabIndex = 3;
             this.Labellabel.Text = "LABEL";
             // 
+            // SubjectNameLable
+            // 
+            this.SubjectNameLable.AutoSize = true;
+            this.SubjectNameLable.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SubjectNameLable.Location = new System.Drawing.Point(29, 208);
+            this.SubjectNameLable.Name = "SubjectNameLable";
+            this.SubjectNameLable.Size = new System.Drawing.Size(79, 25);
+            this.SubjectNameLable.TabIndex = 4;
+            this.SubjectNameLable.Text = "SUBJECT";
+            // 
+            // TimeLabel
+            // 
+            this.TimeLabel.AutoSize = true;
+            this.TimeLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TimeLabel.Location = new System.Drawing.Point(31, 246);
+            this.TimeLabel.Name = "TimeLabel";
+            this.TimeLabel.Size = new System.Drawing.Size(51, 25);
+            this.TimeLabel.TabIndex = 5;
+            this.TimeLabel.Text = "TIME";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(58, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Задание";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label2.Location = new System.Drawing.Point(44, 200);
+            this.label2.Location = new System.Drawing.Point(58, 187);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "SUBJECT";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Предмет";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label3.Location = new System.Drawing.Point(56, 246);
+            this.label3.Location = new System.Drawing.Point(29, 233);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "TIME";
+            this.label3.Size = new System.Drawing.Size(120, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Время на выполнение";
             // 
             // ActiveTest
             // 
@@ -123,6 +142,9 @@
             this.ClientSize = new System.Drawing.Size(617, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TimeLabel);
+            this.Controls.Add(this.SubjectNameLable);
             this.Controls.Add(this.Labellabel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -131,10 +153,10 @@
             this.MaximizeBox = false;
             this.Name = "ActiveTest";
             this.Text = "ActiveTest";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ActiveTest_FormClosing);
             this.Load += new System.EventHandler(this.ActiveTest_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,9 +167,11 @@
         private System.Windows.Forms.Label TestIDLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label TskTextLabel;
         private System.Windows.Forms.Label Labellabel;
+        private System.Windows.Forms.Label SubjectNameLable;
+        private System.Windows.Forms.Label TimeLabel;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
     }

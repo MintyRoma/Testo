@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EduAtmo.Elements
 {
-    class TaskProperties
+    public class TaskProperties
     {
         #region Fields
         public int id;

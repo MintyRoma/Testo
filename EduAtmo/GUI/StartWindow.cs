@@ -63,6 +63,7 @@ namespace EduAtmo
         private void StartTestBut_Click(object sender, EventArgs e)
         {
             Shell.StartTest(FIOBox.Text, GroupNameBox.Text);
+            this.Hide();
         }
     }
 }

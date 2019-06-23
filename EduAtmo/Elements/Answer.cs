@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EduAtmo.Elements
 {
-    class Answer
+    public class Answer
     {
         #region Private Data
         private int id;
