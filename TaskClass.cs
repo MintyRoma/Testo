@@ -11,7 +11,7 @@ namespace Testo
         private string label;
         private string text;
         private int id;
-        private 
+        private AnswerType anst;
         private List<Image> imgs = new List<Image>();
         private List<AnswerClass> answers = new List<AnswerClass>();
         private AnswerClass answer;
@@ -73,7 +73,11 @@ namespace Testo
                 AnswersChanged(this, EventArgs.Empty);
             }
         }
-
+        public AnswerType Answer_Type
+        {
+            get { return anst; }
+            set { anst = value; }
+        }
         public bool CheckAnswer(AnswerClass ans)
         {
             if (ans == answer) return true;

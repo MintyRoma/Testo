@@ -10,7 +10,6 @@ namespace Testo
         Radio,
         String,
         CheckBox,
-        Order,
-
+        Order
     }
 }

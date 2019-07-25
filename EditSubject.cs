@@ -81,5 +81,11 @@ namespace Testo
             if (selected.Text == "Добавить задание") MODE = Mode.TaskEdit;
             if (selected.Text == "Параметры") MODE = Mode.SubjectEdit;
         }
+
+        private void AnswersBtn_Click(object sender, EventArgs e)
+        {
+            AddAnswers form = new AddAnswers();
+            form.Show();
+        }
     }
 }

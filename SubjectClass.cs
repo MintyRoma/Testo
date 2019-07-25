@@ -96,7 +96,7 @@ namespace Testo
                     xmlio.WriteStartElement("answers");
                     foreach(AnswerClass answer in task.Answers)
                     {
-                        xml
+                        
                     }
                 }
             }

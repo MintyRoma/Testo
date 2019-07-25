@@ -50,8 +50,8 @@
             this.CancelBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.TaskInfoPanel = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AnswersBtn = new System.Windows.Forms.Button();
+            this.BroowseImageBtn = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -276,8 +276,8 @@
             // 
             // TaskInfoPanel
             // 
-            this.TaskInfoPanel.Controls.Add(this.button2);
-            this.TaskInfoPanel.Controls.Add(this.button1);
+            this.TaskInfoPanel.Controls.Add(this.AnswersBtn);
+            this.TaskInfoPanel.Controls.Add(this.BroowseImageBtn);
             this.TaskInfoPanel.Controls.Add(this.listView1);
             this.TaskInfoPanel.Controls.Add(this.textBox1);
             this.TaskInfoPanel.Controls.Add(this.label6);
@@ -290,25 +290,26 @@
             this.TaskInfoPanel.Size = new System.Drawing.Size(528, 385);
             this.TaskInfoPanel.TabIndex = 19;
             // 
-            // button2
+            // AnswersBtn
             // 
-            this.button2.Font = new System.Drawing.Font("Consolas", 12F);
-            this.button2.Location = new System.Drawing.Point(16, 338);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 34);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Ответы";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AnswersBtn.Font = new System.Drawing.Font("Consolas", 12F);
+            this.AnswersBtn.Location = new System.Drawing.Point(16, 338);
+            this.AnswersBtn.Name = "AnswersBtn";
+            this.AnswersBtn.Size = new System.Drawing.Size(104, 34);
+            this.AnswersBtn.TabIndex = 4;
+            this.AnswersBtn.Text = "Ответы";
+            this.AnswersBtn.UseVisualStyleBackColor = true;
+            this.AnswersBtn.Click += new System.EventHandler(this.AnswersBtn_Click);
             // 
-            // button1
+            // BroowseImageBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Consolas", 12F);
-            this.button1.Location = new System.Drawing.Point(446, 270);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Обзор";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BroowseImageBtn.Font = new System.Drawing.Font("Consolas", 12F);
+            this.BroowseImageBtn.Location = new System.Drawing.Point(446, 270);
+            this.BroowseImageBtn.Name = "BroowseImageBtn";
+            this.BroowseImageBtn.Size = new System.Drawing.Size(75, 33);
+            this.BroowseImageBtn.TabIndex = 3;
+            this.BroowseImageBtn.Text = "Обзор";
+            this.BroowseImageBtn.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
@@ -421,8 +422,8 @@
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.CheckBox RandomAnswerCheckBox;
         private System.Windows.Forms.Panel TaskInfoPanel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AnswersBtn;
+        private System.Windows.Forms.Button BroowseImageBtn;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
