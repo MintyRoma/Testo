@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Testo
 {
-    class AnswerClass
+    public class AnswerClass
     {
         private int id;
         private string text;
@@ -25,6 +25,10 @@ namespace Testo
         {
             id = Id;
             text = txt;
+        }
+
+        public AnswerClass()
+        {
         }
     }
 }

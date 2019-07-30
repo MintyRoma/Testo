@@ -31,6 +31,7 @@
             this.AnswerTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.AnswersPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AnswerTypeComboBox
@@ -66,14 +67,25 @@
             this.AnswersPanel.Size = new System.Drawing.Size(322, 326);
             this.AnswersPanel.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(244, 409);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 30);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Сохранить";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // AddAnswers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 515);
+            this.ClientSize = new System.Drawing.Size(347, 445);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.AnswersPanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AnswerTypeComboBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddAnswers";
             this.Text = "AddAnswers";
             this.Load += new System.EventHandler(this.AddAnswers_Load);
@@ -87,5 +99,6 @@
         private System.Windows.Forms.ComboBox AnswerTypeComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel AnswersPanel;
+        private System.Windows.Forms.Button button1;
     }
 }
