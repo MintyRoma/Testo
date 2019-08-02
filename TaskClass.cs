@@ -6,22 +6,26 @@ using System.Text;
 
 namespace Testo
 {
-    class TaskClass
+    public class TaskClass
     {
         private string label;
         private string text;
-        private int id;
         private AnswerType anst;
         private List<Image> imgs = new List<Image>();
-        private List<AnswerClass> answers = new List<AnswerClass>();
-        private AnswerClass answer;
+        private List<string> answers = new List<string>();
+        private string answer;
 
+        public delegate void lblbChanged();
+        public delegate void textchanged();
+        public delegate void imageschanged();
+        public delegate void answerschanged();
+        public delegate void answerchanged();
 
-        public EventHandler LabelChanged;
-        public EventHandler TextChanged;
-        public EventHandler ImagesListChanged;
-        public EventHandler AnswersChanged;
-        public EventHandler AnswerChanged;
+        public event lblbChanged LabelChanged;
+        public event textchanged TextChanged;
+        public event imageschanged ImagesListChanged;
+        public event answerschanged AnswersChanged;
+        public event answerchanged AnswerChanged;
 
         public string Label
         {
@@ -29,7 +33,7 @@ namespace Testo
             set
             {
                 label = value;
-                LabelChanged(this, EventArgs.Empty);
+                if (LabelChanged!=null)LabelChanged();
             }
         }
         public string Text
@@ -38,13 +42,8 @@ namespace Testo
             set
             {
                 text = value;
-                TextChanged(this, EventArgs.Empty);
+                if(TextChanged!=null)TextChanged();
             }
-        }
-        public int ID
-        {
-            get { return id; }
-            set { id = value; }
         }
         public List<Image> Images
         {
@@ -52,25 +51,25 @@ namespace Testo
             set
             {
                 imgs = value;
-                ImagesListChanged(this, EventArgs.Empty);
+                if (ImagesListChanged!=null)ImagesListChanged();
             }
         }
-        public List<AnswerClass> Answers
+        public List<string> Answers
         {
             get { return answers; }
             set
             {
                 answers = value;
-                AnswersChanged(this, EventArgs.Empty);
+                if (AnswersChanged!=null)AnswerChanged();
             }
         }
-        public AnswerClass Answer
+        public string Answer
         {
             get { return answer; }
             set
             {
                 answer = value;
-                AnswersChanged(this, EventArgs.Empty);
+                if (AnswersChanged!=null)AnswersChanged();
             }
         }
         public AnswerType Answer_Type
@@ -78,7 +77,7 @@ namespace Testo
             get { return anst; }
             set { anst = value; }
         }
-        public bool CheckAnswer(AnswerClass ans)
+        public bool CheckAnswer(string ans)
         {
             if (ans == answer) return true;
             else return false;

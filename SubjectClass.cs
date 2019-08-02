@@ -1,44 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml;
 using System.IO;
 using System.Drawing;
-
+using System.Security.Cryptography;
+using System.IO.Compression;
+using Ionic;
 namespace Testo
 {
-    class SubjectClass
+    public class SubjectClass
     {
 
         public string Name { get; set; }
         public string Filename { get; set; }
         public string Hash { get; set; }
+
+        private StreamReader sr;
+        private XmlWriter xmlio;
+
+        private string CalculateHash()
+        {
+            MD5 md=MD5.Create();
+            string original;
+            original = sr.ReadToEnd();
+            
+            string has = Convert.ToBase64String(md.ComputeHash(Encoding.UTF8.GetBytes(original)));
+            return has;
+        }
+
         public bool ShowRight { get; set; }
         public bool AllowRemake { get; set; }
         public bool Randomtask { get; set; }
         public bool RandomAnswerOrder { get; set; }
         public bool UseTime { get; set; }
         public int Time { get; set; } = -1;
-        public List<TaskClass> Tasks { get; set; }
-        public List<MarkClass> Marks { get; set; }
+        public List<TaskClass> Tasks { get; set; } = new List<TaskClass>();
+        public List<MarkClass> Marks { get; set; } = new List<MarkClass>();
+        public Exception FileExistException = new Exception();
+        public Exception TrashInDirectory = new Exception();
 
-        SubjectClass()
+        public SubjectClass()
         { }
-        SubjectClass(string path)
+        public SubjectClass(string path)
         {
         }
 
         public void Export(bool rewrite = false)
         {
-            if (File.Exists(Filename) && rewrite == false)
+            if (File.Exists(Filename+".sft") && rewrite == false)
             {
-                throw new Exception("File with such filename exists. Use Export(bool rewrite=true) to rewrite this file");
+                throw FileExistException;
             }
-            if(File.Exists(Filename)&& rewrite==true)
-            {
-                File.Delete(Filename);
-                XmlWriter xmlio = XmlWriter.Create("script");
+            if (!Directory.Exists("res")) Directory.CreateDirectory("res");
+                FileStream fs = new FileStream("script.ist", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                xmlio = XmlWriter.Create(fs);
+                sr = new StreamReader(fs);
+
                 xmlio.WriteStartElement("subject"); //root
                 xmlio.WriteAttributeString("name",Name);
 
@@ -81,8 +99,15 @@ namespace Testo
                     xmlio.WriteString(task.Text);
                     xmlio.WriteEndElement();
 
-                    xmlio.WriteStartElement("images");
-                    if (!Directory.Exists("res")) Directory.CreateDirectory("res");
+                    xmlio.WriteStartElement("images"); //write images pathes
+                    //if (!Directory.Exists("res")) Directory.CreateDirectory("res");
+                    //else
+                    //{
+                    //    xmlio.Close();
+                    //    File.Delete("script.ist");
+                    //    //throw TrashInDirectory;
+                    //}
+
                     int counter = 0;
                     foreach(Image img in task.Images)
                     {
@@ -93,13 +118,66 @@ namespace Testo
                     }
                     xmlio.WriteEndElement();
 
+                    xmlio.WriteStartElement("answertype");
+                    xmlio.WriteString(Convert.ToString(task.Answer_Type));
+                    xmlio.WriteEndElement();
+
                     xmlio.WriteStartElement("answers");
-                    foreach(AnswerClass answer in task.Answers)
+                    foreach(string answer in task.Answers)
                     {
-                        
+                        xmlio.WriteStartElement("answer");
+                        xmlio.WriteString(answer);
+                        xmlio.WriteEndElement();
                     }
+                    xmlio.WriteEndElement();
+
+                    xmlio.WriteStartElement("right");
+                    xmlio.WriteString(task.Answer);
+                    xmlio.WriteEndElement();
+
+                    xmlio.WriteEndElement();//close task
                 }
-            }
+                xmlio.WriteEndElement();
+                xmlio.WriteStartElement("marks");
+                foreach(MarkClass mrk in Marks)
+                {
+                    xmlio.WriteStartElement("mark");
+                    xmlio.WriteElementString("percentage", Convert.ToString(mrk.Percentage));
+                    xmlio.WriteElementString("name", mrk.Mark);
+                    xmlio.WriteEndElement();
+                }
+                xmlio.WriteEndElement();
+                xmlio.Flush();
+                string has = CalculateHash();
+                xmlio.WriteStartElement("hash");
+                xmlio.WriteString(has);
+                xmlio.WriteEndElement();
+
+
+                xmlio.WriteEndElement();
+
+                xmlio.WriteEndDocument();
+                xmlio.Close();
+
+                fs.Close();
+
+                Ionic.Zip.ZipFile zp = new Ionic.Zip.ZipFile();
+                zp.AddFile("script.ist");
+                zp.AddDirectory("res","res");
+                zp.Password = "12345678";
+                zp.Encryption = Ionic.Zip.EncryptionAlgorithm.WinZipAes128;
+                zp.Save($"{Filename}.sft");
+
+                byte[] fl = File.ReadAllBytes($"{Filename}.sft");
+                byte[] res;
+                List<byte> tmplist = new List<byte>();
+                foreach(byte tmp in fl)
+                {
+                    var vt = ~tmp;
+                    tmplist.Add((byte)vt);
+                }
+                res = tmplist.ToArray();
+                File.WriteAllBytes($"{Filename}.sft", res);
         }
 
     }

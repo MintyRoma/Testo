@@ -11,6 +11,7 @@ namespace Testo
 {
     public partial class EditSubject : Form
     {
+        private SubjectClass subject = new SubjectClass();
         private Mode md = Mode.SubjectEdit;
         private bool usetimer = false;
         public bool UseTimer
@@ -72,6 +73,7 @@ namespace Testo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            TestClass tst = new TestClass();
             TaskTree.ExpandAll();
         }
 

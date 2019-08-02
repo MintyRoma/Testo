@@ -5,14 +5,20 @@ using System.Text;
 
 namespace Testo
 {
-    class MarkClass
+    public class MarkClass
     {
         private int id;
         private string mark;
-        private int percentage;
+        private double percentage;
 
         public int ID;
         public string Mark { get { return mark; } }
-        public int Percentage { get { return percentage; } }
+        public double Percentage { get { return percentage; } }
+
+        public MarkClass(string name, double percent)
+        {
+            mark = name;
+            percentage = percent;
+        }
     }
 }

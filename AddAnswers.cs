@@ -11,8 +11,8 @@ namespace Testo
 {
     public partial class AddAnswers : Form
     {
-        private List<AnswerClass> answers = new List<AnswerClass>();
-        private AnswerClass trueAnswer = new AnswerClass();
+        private List<string> answers = new List<string>();
+        private string trueAnswer;
         private AnswerType anstype;
         public AnswerType Answer_Type
         {
@@ -22,7 +22,7 @@ namespace Testo
             }
         }
 
-        public AnswerClass Answer
+        public string Answer
         {
             get { return trueAnswer; }
             set { trueAnswer = value;
