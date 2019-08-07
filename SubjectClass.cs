@@ -6,7 +6,9 @@ using System.IO;
 using System.Drawing;
 using System.Security.Cryptography;
 using System.IO.Compression;
-using Ionic;
+using Ionic.Zip;
+using System.Windows.Forms;
+
 namespace Testo
 {
     public class SubjectClass
@@ -17,23 +19,27 @@ namespace Testo
         public string Hash { get; set; }
 
         private StreamReader sr;
-        private XmlWriter xmlio;
+        private FileStream fs;
 
         private string CalculateHash()
         {
             MD5 md=MD5.Create();
-            string original;
-            original = sr.ReadToEnd();
+            string original = "";
+            fs.Position = 0;
+            while(!sr.EndOfStream)
+            {
+                original+= sr.ReadLine();
+            }
             
             string has = Convert.ToBase64String(md.ComputeHash(Encoding.UTF8.GetBytes(original)));
             return has;
         }
 
-        public bool ShowRight { get; set; }
-        public bool AllowRemake { get; set; }
-        public bool Randomtask { get; set; }
-        public bool RandomAnswerOrder { get; set; }
-        public bool UseTime { get; set; }
+        public bool ShowRight { get; set; } = false;
+        public bool AllowRemake { get; set; } = false;
+        public bool Randomtask { get; set; } = false;
+        public bool RandomAnswerOrder { get; set; } = false;
+        public bool UseTime { get; set; } = false;
         public int Time { get; set; } = -1;
         public List<TaskClass> Tasks { get; set; } = new List<TaskClass>();
         public List<MarkClass> Marks { get; set; } = new List<MarkClass>();
@@ -44,23 +50,145 @@ namespace Testo
         { }
         public SubjectClass(string path)
         {
+            Import(path);
+        }
+
+        public void Import(string path)
+        {
+            const string filename = "runtime.sft";
+
+            if (!File.Exists(path)) return; //File not exists exception
+            if (File.Exists("runtime.sft")) File.Delete("runtime.sft");
+            byte[] fl = File.ReadAllBytes(path);
+            byte[] res;
+            List<byte> tmplist = new List<byte>();
+            foreach (byte tmp in fl)
+            {
+                var vt = ~tmp;
+                tmplist.Add((byte)vt);
+            }
+            res = tmplist.ToArray();
+            File.WriteAllBytes(filename, res);
+            File.SetAttributes(filename, FileAttributes.Hidden);
+            ZipFile zip = new ZipFile("runtime.sft");
+            Directory.CreateDirectory("runtime");
+            zip.ExtractAll("runtime",ExtractExistingFileAction.OverwriteSilently);
+            zip.Dispose();
+            FileStream fs = new FileStream($"runtime/script.ist", FileMode.Open, FileAccess.Read);
+            XmlDocument doc = new XmlDocument();
+            sr = new StreamReader(fs);
+            string original = "";
+            while (true)
+            {
+                if (sr.EndOfStream) return; //EOF Exception
+                string tmp = sr.ReadLine();
+                if (tmp.Contains("<hash>") && tmp.Contains("</hash>"))
+                {
+                    int sp = tmp.IndexOf("<hash>");
+                    original += tmp.Substring(0, sp);
+                    break;
+                }
+                original += tmp;
+            }
+            MD5 md = MD5.Create();
+            string has = Convert.ToBase64String(md.ComputeHash(Encoding.UTF8.GetBytes(original)));
+            fs.Position = 0;
+            doc.Load(fs);
+            XmlNode root = doc.DocumentElement;
+            XmlNode HashNode = root.SelectSingleNode("hash");
+            if (HashNode.InnerText != has) return;
+           Name = root.Attributes.GetNamedItem("name").InnerText;
+            XmlNode ParamNode = root.SelectSingleNode("settings");
+            foreach (XmlNode nd in ParamNode)
+            {
+                if (nd.Name == "showright") ShowRight = nd.InnerText == "True" ? true : false;
+                if (nd.Name == "allowremake") AllowRemake = nd.InnerText == "True" ? true : false;
+                if (nd.Name == "randomtask") Randomtask = nd.InnerText == "True" ? true : false;
+                if (nd.Name == "randomanswer") RandomAnswerOrder = nd.InnerText == "True" ? true : false;
+                if (nd.Name == "usetimer")
+                {
+                    UseTime = nd.InnerText == "True" ? true : false;
+                    Time = Convert.ToInt32( nd.Attributes.GetNamedItem("time").InnerText);
+                }
+            }
+#if DEBUG
+            MessageBox.Show($"Name: {Name}\nshowright: {ShowRight}\n allowremake: {AllowRemake}\n randomtask:{Randomtask}\nrandomanswer:{RandomAnswerOrder}\n usetimer:{UseTime} \ntime:{Time}");
+#endif
+            XmlNode TasksNode = root.SelectSingleNode("tasks");
+            foreach(XmlNode nd in TasksNode)
+            {
+                if (nd.Name == "task")
+                {
+                    TaskClass task = new TaskClass();
+                    foreach (XmlNode taskchild in nd)
+                    {
+
+                        if (taskchild.Name == "header") task.Label = taskchild.InnerText;
+                        if (taskchild.Name == "text") task.Text = taskchild.InnerText;
+                        if (taskchild.Name == "images")
+                        {
+                            foreach (XmlNode imgaenode in taskchild)
+                            {
+                                Image img = Image.FromFile("runtime/"+imgaenode.InnerText);
+                                task.Images.Add(img);
+                            }
+                        }
+                        if (taskchild.Name == "answertype") task.Answer_Type = (AnswerType)Enum.Parse(typeof(AnswerType), taskchild.InnerText, true);
+                        if (taskchild.Name == "answers")
+                        {
+                            foreach(XmlNode answernode in taskchild)
+                            {
+                                task.Answers.Add(answernode.InnerText);
+                            }
+                        }
+                        if (taskchild.Name == "right") task.Answer = taskchild.InnerText;
+                    }
+#if DEBUG
+                    string answers="";
+                    foreach (string answer in task.Answers) answers += answer + ";\n"; 
+                    MessageBox.Show($"=Task=\nName: {task.Label}\nText:{task.Text}\nImgs:{task.Images.Count}\nAnswer Type: {task.Answer_Type}\nAnswers:\n{answers}\n" +
+                        $"Right: {task.Answer}");
+#endif
+                    Tasks.Add(task);
+                }
+            }
+            XmlNode MarksNode = root.SelectSingleNode("marks");
+            foreach(XmlNode marknd in MarksNode)
+            {
+                if (marknd.Name=="mark")
+                {
+                    string name = "Error";
+                    double rate = 0.0;
+                    foreach(XmlNode atribute in marknd)
+                    {
+                        if (atribute.Name == "percentage") rate = Convert.ToDouble(atribute.InnerText);
+                        if (atribute.Name == "name") name = atribute.InnerText;
+                    }
+#if DEBUG
+                    MessageBox.Show($"=Mark=\nName: {name}\nPercentage:{rate}");
+#endif
+                    Marks.Add(new MarkClass(name, rate));
+                }
+            }
+
         }
 
         public void Export(bool rewrite = false)
         {
+            XmlWriter xmlio;
             if (File.Exists(Filename+".sft") && rewrite == false)
             {
                 throw FileExistException;
             }
             if (!Directory.Exists("res")) Directory.CreateDirectory("res");
-                FileStream fs = new FileStream("script.ist", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                fs = new FileStream("script.ist", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
                 xmlio = XmlWriter.Create(fs);
                 sr = new StreamReader(fs);
 
                 xmlio.WriteStartElement("subject"); //root
                 xmlio.WriteAttributeString("name",Name);
 
-                xmlio.WriteStartElement("setings"); //setings part
+                xmlio.WriteStartElement("settings"); //setings part
 
                 xmlio.WriteStartElement("showright"); //define show right after asking on task
                 xmlio.WriteString((ShowRight == true) ? "True": "False");
@@ -148,7 +276,9 @@ namespace Testo
                 }
                 xmlio.WriteEndElement();
                 xmlio.Flush();
+                long position = fs.Position;
                 string has = CalculateHash();
+            fs.Position = position;
                 xmlio.WriteStartElement("hash");
                 xmlio.WriteString(has);
                 xmlio.WriteEndElement();
@@ -178,6 +308,8 @@ namespace Testo
                 }
                 res = tmplist.ToArray();
                 File.WriteAllBytes($"{Filename}.sft", res);
+            File.Delete("script.ist");
+            Directory.Delete("res",true);
         }
 
     }

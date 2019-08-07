@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -43,6 +44,17 @@ namespace Testo
             sub.Marks.Add(mrk);
             sub.Marks.Add(mrk1);
             sub.Export(true);
+            byte[] fl = File.ReadAllBytes($"test.sft");
+            byte[] res;
+            List<byte> tmplist = new List<byte>();
+            foreach (byte tmp in fl)
+            {
+                var vt = ~tmp;
+                tmplist.Add((byte)vt);
+            }
+            res = tmplist.ToArray();
+            File.WriteAllBytes($"testinv.sft", res);
+            sub.Import("test.sft"); 
         }
     }
 }
