@@ -5,11 +5,10 @@ using System.Text;
 
 namespace Testo.Exceptions
 {
-    public class TrashInFolder :Exception
+    class WrongFile: Exception
     {
-        public override string Message => "В папке с файлами предметов присутствуют лишние файлы с зарезервированными именами";
+        public override string Message => "Файл предмета существует, но был поврежден";
         public override string HelpLink { get => "https://github.com/MintyRoma/Testo"; }
-
         public override string StackTrace => base.StackTrace;
     }
 }

@@ -33,7 +33,9 @@ namespace Testo
             tsk2.Answers.Add("I answer");
             tsk2.Answer="Hi";
             Bitmap img = new Bitmap(@"C:\Users\srdhe\OneDrive\Изображения\ПЕ алерт.png");
-            tsk2.Images.Add(img);
+            Image img1 = Image.FromFile(@"C:\Users\srdhe\OneDrive\Изображения\cs.jpg");
+            tsk2.Images.Add(img,"");
+            tsk2.Images.Add(img1,"");
 
             SubjectClass sub = new SubjectClass();
             sub.AllowRemake = true;

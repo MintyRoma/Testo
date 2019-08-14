@@ -11,7 +11,7 @@ namespace Testo
         private string label;
         private string text;
         private AnswerType anst;
-        private List<Image> imgs = new List<Image>();
+        private Dictionary<Image,string> imgs = new Dictionary<Image, string>();
         private List<string> answers = new List<string>();
         private string answer;
 
@@ -45,7 +45,7 @@ namespace Testo
                 if(TextChanged!=null)TextChanged();
             }
         }
-        public List<Image> Images
+        public Dictionary<Image,string> Images
         {
             get { return imgs; }
             set

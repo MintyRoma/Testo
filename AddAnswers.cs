@@ -13,7 +13,26 @@ namespace Testo
     {
         private List<string> answers = new List<string>();
         private string trueAnswer;
-        private AnswerType anstype;
+        private AnswerType anstype = AnswerType.Radio;
+        private TaskClass tsk;
+        private Font deffont = new Font("Consolas", (float)12.0);
+
+        public delegate void answerchanged();
+        public event answerchanged AnswerChanged;
+
+        public delegate void tskchangeddelegate();
+        public event tskchangeddelegate TaskChanged;
+
+        public TaskClass Task
+        {
+            get { return tsk; }
+            set
+            {
+                tsk = value;
+                if (TaskChanged!=null) TaskChanged();
+            }
+        }
+       
         public AnswerType Answer_Type
         {
             get { return anstype; }
@@ -26,101 +45,85 @@ namespace Testo
         {
             get { return trueAnswer; }
             set { trueAnswer = value;
-                UpdateAnswer();
+                AnswerChanged();
             }
         }
-
-        private void UpdateAnswer()
+              
+        public AddAnswers(TaskClass task)
         {
-            throw new NotImplementedException();
+            InitializeComponent();
+            Task = task;
+            Answer_Type = task.Answer_Type;
+            switch(Answer_Type)
+            {
+                case AnswerType.Radio:
+                    AnswerTypeComboBox.SelectedItem = "Один ответ из нескольких вариантов";
+                    break;
+                case AnswerType.Order:
+                    AnswerTypeComboBox.SelectedItem = "Порядок";
+                    break;
+                case AnswerType.CheckBox:
+                    AnswerTypeComboBox.SelectedItem = "Несколько вариантов ответа";
+                    break;
+                default:
+                    AnswerTypeComboBox.SelectedItem = "Строка";
+                    Answer_Type = AnswerType.String;
+                    break;
+            }
+            if (Task.Answers.Count<1)
+            {
+                AnswerComponent ans = new AnswerComponent(Answer_Type);
+                ans.Text = "Новый ответ";
+                ans.Font = deffont;
+                ans.Size = new Size(AnswersPanel.Size.Width, 30);
+                ans.Location = new Point(0, 0);
+                AnswersPanel.Controls.Add(ans);
+            }
+            else
+            {
+                int counter = 0;
+                foreach(string answer in task.Answers)
+                {
+                    AnswerComponent ans = new AnswerComponent(Answer_Type);
+                    ans.Text = answer;
+                    ans.Size = new Size(AnswersPanel.Size.Width, 30);
+                    ans.Location = new Point(0,counter*30);
+                    counter++;
+                    ans.Font = deffont;
+                    if (answer == Task.Answer) ans.Checked = true;
+                    AnswersPanel.Controls.Add(ans);
+                }
+            }
+            
+        }
+        private void AddAnswers_Load(object sender, EventArgs e)
+        {
+            TaskChanged += ReloadPanel;
         }
 
         private void ReloadPanel()
         {
-            List<Control> ctrls = new List<Control>();
-            switch (Answer_Type)
+            if (Answer_Type == AnswerType.CheckBox || Answer_Type == AnswerType.Radio || Answer_Type == AnswerType.Order)
             {
-                case AnswerType.CheckBox:
-                    CheckBox chk = new CheckBox();
-                    chk.Size = new Size(20, 20);
-                    chk.Font = new Font("Consolas",(float)12.0,FontStyle.Regular);
-                    chk.Location = new Point(10, 15);
-                    TextBox txtfield = new TextBox();
-                    txtfield.Font = new Font("Consolas", (float)12.0, FontStyle.Regular);
-                    txtfield.Text = "Новый ответ";
-                    txtfield.Location = new Point(30, 10);
-                    txtfield.Size = new Size(250, txtfield.Size.Height);
-                    txtfield.TextChanged += TextChangedInside;
-                    ctrls.Add(chk);
-                    ctrls.Add(txtfield);
-                    break;
-                case AnswerType.Radio:
-                    
-                    break;
-                case AnswerType.String:
-                    
-                    break;
-                default:
-                    
-                    break;
+                stringanswerpanel.Hide();
+                foreach (Control ans in AnswersPanel.Controls)
+                {
+                    if (ans is AnswerComponent)
+                    {
+                        AnswerComponent an = (AnswerComponent)ans;
+                        an.Answer_Type = Answer_Type;
+                        ans.Show();
+                    }
+                }
             }
-            answers.Clear();
-            AnswersPanel.Controls.Clear();
-            foreach (Control ctrl in ctrls) AnswersPanel.Controls.Add(ctrl);
-        }
-
-        private void TextChangedInside(object sender, EventArgs e)
-        {
-            TextBox txtfield;
-            if (sender is TextBox) txtfield = (TextBox)sender;
-            else return;
-            List<TextBox> txtlist = new List<TextBox>();
-            foreach (Control ctrl in AnswersPanel.Controls) if (ctrl is TextBox) txtlist.Add((TextBox)ctrl);
-            if (txtfield == txtlist.Last()) AddNewAnswer();
-        }
-
-        public AddAnswers()
-        {
-            InitializeComponent();
-        }
-        
-        private void AddNewAnswer()
-        {
-            List<Control> ctrls = new List<Control>();
-            switch (Answer_Type)
+            else
             {
-                case AnswerType.CheckBox:
-                    int num=0;
-                    foreach(Control ctrl in AnswersPanel.Controls) if (ctrl is CheckBox) num++;
-                    num ++;
-                    CheckBox chk = new CheckBox();
-                    chk.Size = new Size(20, 20);
-                    chk.Font = new Font("Consolas", (float)12.0, FontStyle.Regular);
-                    chk.Location = new Point(10, 15*num + (num-1)*20);
-                    TextBox txtfield = new TextBox();
-                    txtfield.Font = new Font("Consolas", (float)12.0, FontStyle.Regular);
-                    txtfield.Text = "Новый ответ";
-                    txtfield.Location = new Point(30, 10*num + (num-1)*txtfield.Size.Height);
-                    txtfield.Size = new Size(250, txtfield.Size.Height);
-                    txtfield.TextChanged += TextChangedInside;
-                    ctrls.Add(chk);
-                    ctrls.Add(txtfield);
-                    break;
-                case AnswerType.Radio:
-
-                    break;
-                case AnswerType.String:
-
-                    break;
-                default:
-
-                    break;
+                foreach (Control ans in AnswersPanel.Controls)
+                {
+                    if (ans is AnswerComponent) ans.Hide();
+                }
+                stringanswerpanel.Show();
             }
-            foreach (Control ctrl in ctrls) AnswersPanel.Controls.Add(ctrl);
-        }
-
-        private void AddAnswers_Load(object sender, EventArgs e)
-        {
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)

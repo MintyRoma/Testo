@@ -32,6 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AnswersPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.stringanswerpanel = new System.Windows.Forms.Panel();
+            this.textbox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.AnswersPanel.SuspendLayout();
+            this.stringanswerpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // AnswerTypeComboBox
@@ -62,6 +67,7 @@
             // AnswersPanel
             // 
             this.AnswersPanel.AutoScroll = true;
+            this.AnswersPanel.Controls.Add(this.stringanswerpanel);
             this.AnswersPanel.Location = new System.Drawing.Point(13, 77);
             this.AnswersPanel.Name = "AnswersPanel";
             this.AnswersPanel.Size = new System.Drawing.Size(322, 326);
@@ -76,6 +82,33 @@
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // stringanswerpanel
+            // 
+            this.stringanswerpanel.Controls.Add(this.label2);
+            this.stringanswerpanel.Controls.Add(this.textbox);
+            this.stringanswerpanel.Location = new System.Drawing.Point(4, 110);
+            this.stringanswerpanel.Name = "stringanswerpanel";
+            this.stringanswerpanel.Size = new System.Drawing.Size(315, 64);
+            this.stringanswerpanel.TabIndex = 0;
+            // 
+            // textbox
+            // 
+            this.textbox.Font = new System.Drawing.Font("Consolas", 12F);
+            this.textbox.Location = new System.Drawing.Point(0, 22);
+            this.textbox.Name = "textbox";
+            this.textbox.Size = new System.Drawing.Size(315, 26);
+            this.textbox.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 12F);
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Строковой ответ";
+            // 
             // AddAnswers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -89,6 +122,9 @@
             this.Name = "AddAnswers";
             this.Text = "AddAnswers";
             this.Load += new System.EventHandler(this.AddAnswers_Load);
+            this.AnswersPanel.ResumeLayout(false);
+            this.stringanswerpanel.ResumeLayout(false);
+            this.stringanswerpanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +136,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel AnswersPanel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel stringanswerpanel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textbox;
     }
 }

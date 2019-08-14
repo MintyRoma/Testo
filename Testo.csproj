@@ -53,6 +53,12 @@
     <Compile Include="AddAnswers.Designer.cs">
       <DependentUpon>AddAnswers.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnswerComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnswerComponent.Designer.cs">
+      <DependentUpon>AnswerComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnswerType.cs" />
     <Compile Include="EditSubject.cs">
       <SubType>Form</SubType>
@@ -60,7 +66,11 @@
     <Compile Include="EditSubject.Designer.cs">
       <DependentUpon>EditSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\FileExists.cs" />
+    <Compile Include="Exceptions\SFTNotExists.cs" />
     <Compile Include="Exceptions\TrashInFolder.cs" />
+    <Compile Include="Exceptions\WrongFile.cs" />
+    <Compile Include="Exceptions\WrongHash.cs" />
     <Compile Include="MarkClass.cs" />
     <Compile Include="Mode.cs" />
     <Compile Include="Program.cs" />
@@ -70,6 +80,9 @@
     <Compile Include="TestClass.cs" />
     <EmbeddedResource Include="AddAnswers.resx">
       <DependentUpon>AddAnswers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnswerComponent.resx">
+      <DependentUpon>AnswerComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditSubject.resx">
       <DependentUpon>EditSubject.cs</DependentUpon>

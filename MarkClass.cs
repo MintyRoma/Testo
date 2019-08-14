@@ -7,7 +7,6 @@ namespace Testo
 {
     public class MarkClass
     {
-        private int id;
         private string mark;
         private double percentage;
 
