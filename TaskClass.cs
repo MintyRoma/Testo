@@ -82,5 +82,14 @@ namespace Testo
             if (ans == answer) return true;
             else return false;
         }
+
+        public void Dispose()
+        {
+            foreach(KeyValuePair<Image,string> img in Images)
+            {
+                img.Key.Dispose();
+            }
+            Images.Clear();
+        }
     }
 }

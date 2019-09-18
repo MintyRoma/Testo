@@ -11,11 +11,21 @@ namespace Testo
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditSubject());
+            if (args.Count() > 0)
+            {
+                if (args[0] == "/b")
+                {
+                    Application.Run(new TaskBuild());
+                }
+            }
+            else
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new EditSubject());
+            }
         }
     }
 }

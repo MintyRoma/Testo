@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,13 +12,14 @@ namespace Testo
 {
     public partial class EditSubject : Form
     {
-        private SubjectClass subject;
+        private SubjectClass subject = new SubjectClass();
         private string filename;
         private Mode md = Mode.SubjectEdit;
         private TaskClass runtime;
         private TreeNode selectednode;
         private bool usetimer = false;
         private bool limittasks = false;
+        private bool activ;
         public bool UseTimer
         {
             get { return usetimer; }
@@ -77,13 +79,6 @@ namespace Testo
                     foreach(KeyValuePair<Image,string> img in runtime.Images)
                     {
                         imglist.Images.Add(img.Key);
-                        //Form frm = new Form();
-                        //PictureBox pb = new PictureBox();
-                        //pb.Image = imglist.Images[imglist.Images.Count-1];
-                        //pb.SizeMode = PictureBoxSizeMode.Zoom;
-                        //pb.Dock = DockStyle.Fill;
-                        //frm.Controls.Add(pb);
-                        //frm.Show();
                         ListViewItem item = new ListViewItem();
                         item.Tag = img.Value;
                         if (img.Key.Tag != null) item.Text = (string)img.Key.Tag;
@@ -125,7 +120,6 @@ namespace Testo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //TestClass tst = new TestClass();
             TaskTree.ExpandAll();
         }
 
@@ -139,7 +133,14 @@ namespace Testo
         private void AnswersBtn_Click(object sender, EventArgs e)
         {
             AddAnswers form = new AddAnswers(runtime);
+            form.Send += EnableForm;
             form.Show();
+            this.Enabled = false;
+        }
+
+        private void EnableForm(List<string> answers, string right, AnswerType at)
+        {
+            
         }
 
         private void PropsPanel_Paint(object sender, PaintEventArgs e)
@@ -155,6 +156,7 @@ namespace Testo
 
         private void ImportBtn_Click(object sender, EventArgs e)
         {
+            if (subject is SubjectClass) subject.Dispose();
             OpenFileDialog filedialog = new OpenFileDialog();
             filedialog.Title = "Выберите файл предмета";
             filedialog.Filter = "Файлы предметов (*.sft)|*.sft";
@@ -162,8 +164,8 @@ namespace Testo
             string path = filedialog.SafeFileName;
             filename = filedialog.FileName;
             if (path == "") return;
-            SubjectFileNameTxtBox.Text= path.Substring(0,path.Count()-4);
             subject = new SubjectClass(filename);
+            SubjectFileNameTxtBox.Text= path.Substring(0,path.Count()-4);
             SubjectNameTxtBox.Text = subject.Name;
             ShowRightCheckBox.Checked = subject.ShowRight;
             AllowReanswerCheckBox.Checked = subject.AllowRemake;
@@ -236,16 +238,40 @@ namespace Testo
             {
                 string newimage = dialog.FileName;
                 Image img = Image.FromFile(newimage);
-                Form frm = new Form();
                 PictureBox pb = new PictureBox();
-                pb.Image = img;
-                pb.SizeMode = PictureBoxSizeMode.Zoom;
-                pb.Dock = DockStyle.Fill;
-                frm.Controls.Add(pb);
-                frm.Show();
                 img.Tag = newimage;
                 runtime.Images.Add(img, newimage);
                 changeState();
+            }
+        }
+
+        private void DeleteTaskBtn_Click(object sender, EventArgs e)
+        {
+            subject.Tasks.Remove(runtime);
+            if (subject.Tasks.Count > 0) runtime = subject.Tasks[0];
+            else
+            {
+                runtime = new TaskClass();
+                subject.Tasks.Add(runtime);
+            }
+            UpdateTaskList();
+            TaskTree.SelectedNode = TaskTree.Nodes[0].Nodes[0];
+            TaskTree.Select();
+            changeState();
+        }
+
+        private void HeaderTask_Leave(object sender, EventArgs e)
+        {
+            runtime.Label = HeaderTask.Text;
+            UpdateTaskList();
+        }
+
+        private void EditSubject_Activated(object sender, EventArgs e)
+        {
+            if (activ==false)
+            {
+                SystemSounds.Beep.Play();
+                this.Enabled = true;
             }
         }
     }

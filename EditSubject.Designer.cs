@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Добавить задание");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Параметры", new System.Windows.Forms.TreeNode[] {
-            treeNode9});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Добавить задание");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Параметры", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
             this.TaskTree = new System.Windows.Forms.TreeView();
             this.PropsPanel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.CancelBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.TaskInfoPanel = new System.Windows.Forms.Panel();
+            this.DeleteImageBtn = new System.Windows.Forms.Button();
             this.AnswersBtn = new System.Windows.Forms.Button();
             this.BroowseImageBtn = new System.Windows.Forms.Button();
             this.ImageView = new System.Windows.Forms.ListView();
@@ -62,7 +63,6 @@
             this.HeaderTask = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.DeleteTaskBtn = new System.Windows.Forms.Button();
-            this.DeleteImageBtn = new System.Windows.Forms.Button();
             this.PropsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.limitasksUND)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimeForTaskNUD)).BeginInit();
@@ -74,13 +74,13 @@
             this.TaskTree.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TaskTree.Location = new System.Drawing.Point(13, 13);
             this.TaskTree.Name = "TaskTree";
-            treeNode9.Name = "AddTaskNode";
-            treeNode9.Text = "Добавить задание";
-            treeNode10.Name = "SubjectRoot";
-            treeNode10.Text = "Параметры";
-            treeNode10.ToolTipText = "Параметры файла заданий";
+            treeNode1.Name = "AddTaskNode";
+            treeNode1.Text = "Добавить задание";
+            treeNode2.Name = "SubjectRoot";
+            treeNode2.Text = "Параметры";
+            treeNode2.ToolTipText = "Параметры файла заданий";
             this.TaskTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
+            treeNode2});
             this.TaskTree.ShowRootLines = false;
             this.TaskTree.Size = new System.Drawing.Size(241, 461);
             this.TaskTree.TabIndex = 0;
@@ -343,6 +343,17 @@
             this.TaskInfoPanel.Size = new System.Drawing.Size(528, 420);
             this.TaskInfoPanel.TabIndex = 19;
             // 
+            // DeleteImageBtn
+            // 
+            this.DeleteImageBtn.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteImageBtn.Location = new System.Drawing.Point(434, 270);
+            this.DeleteImageBtn.Name = "DeleteImageBtn";
+            this.DeleteImageBtn.Size = new System.Drawing.Size(87, 31);
+            this.DeleteImageBtn.TabIndex = 20;
+            this.DeleteImageBtn.Text = "Удалить";
+            this.DeleteImageBtn.UseVisualStyleBackColor = true;
+            this.DeleteImageBtn.Click += new System.EventHandler(this.DeleteImageBtn_Click);
+            // 
             // AnswersBtn
             // 
             this.AnswersBtn.Font = new System.Drawing.Font("Consolas", 12F);
@@ -413,6 +424,7 @@
             this.HeaderTask.Name = "HeaderTask";
             this.HeaderTask.Size = new System.Drawing.Size(505, 26);
             this.HeaderTask.TabIndex = 1;
+            this.HeaderTask.Leave += new System.EventHandler(this.HeaderTask_Leave);
             // 
             // label4
             // 
@@ -435,17 +447,7 @@
             this.DeleteTaskBtn.TabIndex = 19;
             this.DeleteTaskBtn.Text = "Удалить задание";
             this.DeleteTaskBtn.UseVisualStyleBackColor = false;
-            // 
-            // DeleteImageBtn
-            // 
-            this.DeleteImageBtn.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteImageBtn.Location = new System.Drawing.Point(434, 270);
-            this.DeleteImageBtn.Name = "DeleteImageBtn";
-            this.DeleteImageBtn.Size = new System.Drawing.Size(87, 31);
-            this.DeleteImageBtn.TabIndex = 20;
-            this.DeleteImageBtn.Text = "Удалить";
-            this.DeleteImageBtn.UseVisualStyleBackColor = true;
-            this.DeleteImageBtn.Click += new System.EventHandler(this.DeleteImageBtn_Click);
+            this.DeleteTaskBtn.Click += new System.EventHandler(this.DeleteTaskBtn_Click);
             // 
             // EditSubject
             // 
@@ -460,6 +462,7 @@
             this.Controls.Add(this.TaskInfoPanel);
             this.Name = "EditSubject";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.EditSubject_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PropsPanel.ResumeLayout(false);
             this.PropsPanel.PerformLayout();

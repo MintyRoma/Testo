@@ -11,18 +11,15 @@ namespace Testo
 {
     public partial class AnswerComponent : UserControl
     {
-        private Point location;
         private Font font = new Font("Consolas", (float)12.0);
         private AnswerType anstype = AnswerType.Radio;
-        private int numudstatus= 0;
         private string text;
         private bool status = false;
+        private int max;
+        private int numericvalue;
 
-        public delegate void sizechanged();
-        public event sizechanged SizeChanged;
-
-        public delegate void locationchanged();
-        public event locationchanged LocationChanged;
+        public delegate void selected(object sender, EventArgs e);
+        public event selected Selected;
 
         public delegate void fontchanged();
         public new event fontchanged FontChanged;
@@ -31,18 +28,51 @@ namespace Testo
         public event answertypechanged AnswertypeChanged;
 
         public delegate void textchanged();
-        public event textchanged TextChanged;
+        public new event textchanged TextChanged;
 
-        public delegate void statuschanged();
-        public event statuschanged CheckedEvent;
+        public delegate void statuschangeda(object sender, EventArgs e);
+        public event statuschangeda CheckedEvent;
 
-        public new Point Location
+        public delegate void maxchanged();
+        public event maxchanged MaximumChanged;
+
+        public delegate void publinactive(object sender, EventArgs e);
+        public event publinactive Inactive;
+
+        public int OrderNumber
         {
-            get => location;
+            get => numericvalue;
             set
             {
-                location = value;
-                LocationChanged?.Invoke();
+                //if (value>max)
+                //{
+                //    Exception ex = new Exception("Номер ответа больше допустимого числа ответов");
+                //    ex.HelpLink = "https://github.com/MintyRoma/Testo";
+                //    throw ex;
+                //}
+                numericvalue = value;
+                numUD.Value = value;
+                NumUD_ValueChanged(this, EventArgs.Empty);
+            }
+        }
+
+        public override Color BackColor
+        {
+            get => base.BackColor;
+            set
+            {
+                base.BackColor = value;
+                table.BackColor = value;
+            }
+        }
+        public int MaximumUD
+        {
+            get => max;
+            set
+            {
+                max = value;
+                MaximumChanged?.Invoke();
+                numUD.Maximum = max;
             }
         }
 
@@ -83,9 +113,25 @@ namespace Testo
             set
             {
                 status = value;
-                CheckedEvent?.Invoke();
+                CheckedEvent?.Invoke(this, EventArgs.Empty);
+                if (chkcBox.Checked != value || radbtn.Checked != value)
+                {
+                    chkcBox.Checked = value;
+                    radbtn.Checked = value;
+                }
+                Application.DoEvents();
             }
         }
+
+        //public void DisableDotWithoutEvent()
+        //{
+        //    status = false;
+        //    if (chkcBox.Checked!= false || radbtn.Checked !=false)
+        //    {
+        //        chkcBox.Checked = false;
+        //        radbtn.Checked = false;
+        //    }
+        //}
 
         private void RedrawFonts()
         {
@@ -123,7 +169,7 @@ namespace Testo
                 case AnswerType.Radio:
                     {
                         HideAll();
-                        chkcBox.Show();
+                        radbtn.Show();
                         break;
                     }
                 default:
@@ -187,6 +233,54 @@ namespace Testo
         private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            Inactive?.Invoke(this, e);
+        }
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            text = this.textBox.Text;
+
+        }
+
+        private void Radbtn_CheckedChanged(object sender, EventArgs e)
+        {
+             
+        }
+
+        private void Radbtn_Click(object sender, EventArgs e)
+        {
+            Selected?.Invoke(this, EventArgs.Empty);
+            if (radbtn.Checked == false) radbtn.Checked = true;
+            else radbtn.Checked = false;
+        }
+
+        private void NumUD_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void NumUD_Click(object sender, EventArgs e)
+        {
+            Selected?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void TextBox_Click(object sender, EventArgs e)
+        {
+            Selected?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void ChkcBox_Click(object sender, EventArgs e)
+        {
+            Selected?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void Table_Click(object sender, EventArgs e)
+        {
+            Selected?.Invoke(this, EventArgs.Empty);
         }
     }
 }

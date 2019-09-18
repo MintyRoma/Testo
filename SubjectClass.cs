@@ -54,7 +54,7 @@ namespace Testo
             Import(path);
         }
 
-        public void Import(string path)
+        private void Import(string path)
         {
             try
             {
@@ -194,7 +194,8 @@ namespace Testo
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message + "\nПомощь:"+ex.HelpLink);
+                if (ex is Ionic.Zip.ZipException) ex = new Exceptions.WrongFile();
+                MessageBox.Show(ex.Message + "\nПомощь: "+ex.HelpLink);
             }
 
         }
@@ -339,6 +340,14 @@ namespace Testo
             catch(Exception ex)
             {
                 MessageBox.Show($"При загрузке .sft файла произошла ошибка \nОписаие ошибки:{ex.Message}");
+            }
+        }
+
+        public void Dispose ()
+        {
+            foreach (TaskClass tsk in Tasks)
+            {
+                tsk.Dispose();
             }
         }
 

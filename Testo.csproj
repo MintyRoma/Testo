@@ -66,6 +66,7 @@
     <Compile Include="EditSubject.Designer.cs">
       <DependentUpon>EditSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\ExistedAnswer.cs" />
     <Compile Include="Exceptions\FileExists.cs" />
     <Compile Include="Exceptions\SFTNotExists.cs" />
     <Compile Include="Exceptions\TrashInFolder.cs" />
@@ -76,6 +77,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubjectClass.cs" />
+    <Compile Include="TaskBuild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskBuild.Designer.cs">
+      <DependentUpon>TaskBuild.cs</DependentUpon>
+    </Compile>
     <Compile Include="TaskClass.cs" />
     <Compile Include="TestClass.cs" />
     <EmbeddedResource Include="AddAnswers.resx">
@@ -96,6 +103,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TaskBuild.resx">
+      <DependentUpon>TaskBuild.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

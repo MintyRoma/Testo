@@ -40,6 +40,7 @@
             // table
             // 
             this.table.BackColor = System.Drawing.SystemColors.Control;
+            this.table.CausesValidation = false;
             this.table.ColumnCount = 2;
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.67398F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.32602F));
@@ -55,6 +56,7 @@
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.table.Size = new System.Drawing.Size(319, 69);
             this.table.TabIndex = 0;
+            this.table.Click += new System.EventHandler(this.Table_Click);
             this.table.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutPanel1_Paint);
             // 
             // textBox
@@ -64,6 +66,9 @@
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(264, 20);
             this.textBox.TabIndex = 0;
+            this.textBox.Click += new System.EventHandler(this.TextBox_Click);
+            this.textBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.textBox.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // chkcBox
             // 
@@ -75,21 +80,27 @@
             this.chkcBox.Size = new System.Drawing.Size(25, 14);
             this.chkcBox.TabIndex = 1;
             this.chkcBox.UseVisualStyleBackColor = true;
+            this.chkcBox.Click += new System.EventHandler(this.ChkcBox_Click);
             // 
             // radbtn
             // 
+            this.radbtn.AutoCheck = false;
             this.radbtn.AutoSize = true;
             this.radbtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.radbtn.Location = new System.Drawing.Point(32, 3);
             this.radbtn.Name = "radbtn";
             this.radbtn.Size = new System.Drawing.Size(14, 43);
             this.radbtn.TabIndex = 1;
+            this.radbtn.CheckedChanged += new System.EventHandler(this.Radbtn_CheckedChanged);
+            this.radbtn.Click += new System.EventHandler(this.Radbtn_Click);
             // 
             // numUD
             // 
-            this.numUD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numUD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.numUD.Font = new System.Drawing.Font("Consolas", 12F);
-            this.numUD.Location = new System.Drawing.Point(52, 11);
+            this.numUD.Location = new System.Drawing.Point(52, 3);
             this.numUD.Minimum = new decimal(new int[] {
             1,
             0,
@@ -103,12 +114,14 @@
             0,
             0,
             0});
+            this.numUD.ValueChanged += new System.EventHandler(this.NumUD_ValueChanged);
+            this.numUD.Click += new System.EventHandler(this.NumUD_Click);
             // 
             // AnswerComponent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.table);
             this.Location = new System.Drawing.Point(22, 3);
             this.Name = "AnswerComponent";

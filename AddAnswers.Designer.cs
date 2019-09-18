@@ -33,9 +33,10 @@
             this.AnswersPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.stringanswerpanel = new System.Windows.Forms.Panel();
-            this.textbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.AnswersPanel.SuspendLayout();
+            this.textbox = new System.Windows.Forms.TextBox();
+            this.AddAnswer = new System.Windows.Forms.Button();
+            this.DeleteAnswer = new System.Windows.Forms.Button();
             this.stringanswerpanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,10 +68,9 @@
             // AnswersPanel
             // 
             this.AnswersPanel.AutoScroll = true;
-            this.AnswersPanel.Controls.Add(this.stringanswerpanel);
             this.AnswersPanel.Location = new System.Drawing.Point(13, 77);
             this.AnswersPanel.Name = "AnswersPanel";
-            this.AnswersPanel.Size = new System.Drawing.Size(322, 326);
+            this.AnswersPanel.Size = new System.Drawing.Size(322, 287);
             this.AnswersPanel.TabIndex = 2;
             // 
             // button1
@@ -86,18 +86,10 @@
             // 
             this.stringanswerpanel.Controls.Add(this.label2);
             this.stringanswerpanel.Controls.Add(this.textbox);
-            this.stringanswerpanel.Location = new System.Drawing.Point(4, 110);
+            this.stringanswerpanel.Location = new System.Drawing.Point(16, 183);
             this.stringanswerpanel.Name = "stringanswerpanel";
             this.stringanswerpanel.Size = new System.Drawing.Size(315, 64);
             this.stringanswerpanel.TabIndex = 0;
-            // 
-            // textbox
-            // 
-            this.textbox.Font = new System.Drawing.Font("Consolas", 12F);
-            this.textbox.Location = new System.Drawing.Point(0, 22);
-            this.textbox.Name = "textbox";
-            this.textbox.Size = new System.Drawing.Size(315, 26);
-            this.textbox.TabIndex = 1;
             // 
             // label2
             // 
@@ -109,11 +101,44 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Строковой ответ";
             // 
+            // textbox
+            // 
+            this.textbox.Font = new System.Drawing.Font("Consolas", 12F);
+            this.textbox.Location = new System.Drawing.Point(0, 22);
+            this.textbox.Name = "textbox";
+            this.textbox.Size = new System.Drawing.Size(315, 26);
+            this.textbox.TabIndex = 1;
+            // 
+            // AddAnswer
+            // 
+            this.AddAnswer.Font = new System.Drawing.Font("Consolas", 12F);
+            this.AddAnswer.Location = new System.Drawing.Point(12, 370);
+            this.AddAnswer.Name = "AddAnswer";
+            this.AddAnswer.Size = new System.Drawing.Size(75, 28);
+            this.AddAnswer.TabIndex = 4;
+            this.AddAnswer.Text = "+";
+            this.AddAnswer.UseVisualStyleBackColor = true;
+            this.AddAnswer.Click += new System.EventHandler(this.AddAnswer_Click);
+            // 
+            // DeleteAnswer
+            // 
+            this.DeleteAnswer.Font = new System.Drawing.Font("Consolas", 12F);
+            this.DeleteAnswer.Location = new System.Drawing.Point(88, 370);
+            this.DeleteAnswer.Name = "DeleteAnswer";
+            this.DeleteAnswer.Size = new System.Drawing.Size(75, 28);
+            this.DeleteAnswer.TabIndex = 4;
+            this.DeleteAnswer.Text = "-";
+            this.DeleteAnswer.UseVisualStyleBackColor = true;
+            this.DeleteAnswer.Click += new System.EventHandler(this.DeleteAnswer_Click);
+            // 
             // AddAnswers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 445);
+            this.Controls.Add(this.DeleteAnswer);
+            this.Controls.Add(this.AddAnswer);
+            this.Controls.Add(this.stringanswerpanel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.AnswersPanel);
             this.Controls.Add(this.label1);
@@ -121,8 +146,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddAnswers";
             this.Text = "AddAnswers";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddAnswers_FormClosing);
             this.Load += new System.EventHandler(this.AddAnswers_Load);
-            this.AnswersPanel.ResumeLayout(false);
             this.stringanswerpanel.ResumeLayout(false);
             this.stringanswerpanel.PerformLayout();
             this.ResumeLayout(false);
@@ -139,5 +164,7 @@
         private System.Windows.Forms.Panel stringanswerpanel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textbox;
+        private System.Windows.Forms.Button AddAnswer;
+        private System.Windows.Forms.Button DeleteAnswer;
     }
 }
