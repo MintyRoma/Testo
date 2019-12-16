@@ -362,5 +362,10 @@ namespace Testo
             }
             Send?.Invoke(answers, Answer, Answer_Type);
         }
+
+        private void AnswersPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

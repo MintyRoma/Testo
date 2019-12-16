@@ -24,7 +24,7 @@ namespace Testo
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new EditSubject());
+                Application.Run(new TestIP("test.sft"));
             }
         }
     }

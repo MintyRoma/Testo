@@ -72,6 +72,7 @@
             this.AnswersPanel.Name = "AnswersPanel";
             this.AnswersPanel.Size = new System.Drawing.Size(322, 287);
             this.AnswersPanel.TabIndex = 2;
+            this.AnswersPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AnswersPanel_Paint);
             // 
             // button1
             // 
