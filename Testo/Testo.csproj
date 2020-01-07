@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Avalonia.0.8.2\build\Avalonia.props" Condition="Exists('..\packages\Avalonia.0.8.2\build\Avalonia.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D29F928-29DA-40C3-AD27-42A1C3E07924}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Testo</RootNamespace>
+    <AssemblyName>Testo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SVG, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SvgNet.2.0.3\lib\net40\SVG.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Teacher.cs" />
+    <Compile Include="Forms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Security.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Security.Designer.cs">
+      <DependentUpon>Security.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setings.Designer.cs">
+      <DependentUpon>Setings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetingsPages\ProfileSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SetingsPages\ProfileSettingsPanel.Designer.cs">
+      <DependentUpon>ProfileSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetingsPages\SetingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SetingsPages\SetingsPanel.Designer.cs">
+      <DependentUpon>SetingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetingsPages\TasksSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SetingsPages\TasksSettingsPanel.Designer.cs">
+      <DependentUpon>TasksSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Start.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Start.Designer.cs">
+      <DependentUpon>Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Security.resx">
+      <DependentUpon>Security.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setings.resx">
+      <DependentUpon>Setings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetingsPages\ProfileSettingsPanel.resx">
+      <DependentUpon>ProfileSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetingsPages\SetingsPanel.resx">
+      <DependentUpon>SetingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetingsPages\TasksSettingsPanel.resx">
+      <DependentUpon>TasksSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Start.resx">
+      <DependentUpon>Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\git.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\security.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgs\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="imgs\briefcase.png" />
+    <Content Include="imgs\calendar.png" />
+    <Content Include="imgs\database.png" />
+    <Content Include="imgs\edit.png" />
+    <Content Include="imgs\edit_dark.png" />
+    <Content Include="imgs\log-out.png" />
+    <Content Include="imgs\trending-up.png" />
+    <Content Include="imgs\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Components\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Avalonia.0.8.2\build\Avalonia.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Avalonia.0.8.2\build\Avalonia.targets'))" />
+    <Error Condition="!Exists('..\packages\Avalonia.0.8.2\build\Avalonia.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Avalonia.0.8.2\build\Avalonia.props'))" />
+  </Target>
+  <Import Project="..\packages\Avalonia.0.8.2\build\Avalonia.targets" Condition="Exists('..\packages\Avalonia.0.8.2\build\Avalonia.targets')" />
+</Project>
