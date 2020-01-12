@@ -35,9 +35,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.MinimumSize = new System.Drawing.Size(574, 561);
+            this.MinimumSize = new System.Drawing.Size(604, 506);
             this.Name = "SetingsPanel";
-            this.Size = new System.Drawing.Size(574, 561);
+            this.Size = new System.Drawing.Size(604, 841);
+            this.Load += new System.EventHandler(this.SetingsPanel_Load);
             this.ResumeLayout(false);
 
         }

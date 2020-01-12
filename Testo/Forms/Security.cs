@@ -108,6 +108,7 @@ namespace Testo.Forms
                     nxt.Location = this.Location;
                     nxt.FormClosing += ClosingChildForm;
                     TeacherValidated?.Invoke(this,tch);
+                    AccessAllowed?.Invoke(this, EventArgs.Empty);
                     this.Hide();
                     return;
                 }
@@ -116,6 +117,7 @@ namespace Testo.Forms
                     textBox1.Text = "";
                     statuslabel.ForeColor = Color.OrangeRed;
                     statuslabel.Text = "Не существует ни одного пользователя с таким паролем!\nПовторите попытку снова!";
+                    AccessDenied?.Invoke(this, EventArgs.Empty);
                 }
             }
         }

@@ -27,7 +27,7 @@ namespace Testo.Forms
         private Color accentColor = Color.FromArgb(119, 0, 255);
         private Font accentFont = new Font("Segoe UI Semibold", 12.0f);
         private Font defFont = new Font("Segoe UI", 12.0f);
-        UserControl panel = new UserControl();
+        SetingsPages.SetingsPanel panel;
         public enum mode_selecter
         {
             profile,

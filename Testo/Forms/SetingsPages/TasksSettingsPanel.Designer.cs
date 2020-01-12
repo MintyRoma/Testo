@@ -34,6 +34,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.DelSub = new System.Windows.Forms.Button();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.EditSub = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -46,6 +48,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ChildViever = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -54,6 +63,9 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,7 +99,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(604, 704);
+            this.panel2.Size = new System.Drawing.Size(604, 538);
             this.panel2.TabIndex = 1;
             // 
             // panel6
@@ -97,20 +109,22 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 155);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(604, 549);
+            this.panel6.Size = new System.Drawing.Size(604, 383);
             this.panel6.TabIndex = 3;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
             this.panel8.Controls.Add(this.DelSub);
+            this.panel8.Controls.Add(this.panel14);
+            this.panel8.Controls.Add(this.button2);
             this.panel8.Controls.Add(this.panel10);
             this.panel8.Controls.Add(this.EditSub);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.NewSub);
             this.panel8.Location = new System.Drawing.Point(451, 21);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(141, 126);
+            this.panel8.Size = new System.Drawing.Size(141, 171);
             this.panel8.TabIndex = 1;
             // 
             // DelSub
@@ -121,12 +135,37 @@
             this.DelSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DelSub.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.DelSub.ForeColor = System.Drawing.Color.White;
-            this.DelSub.Location = new System.Drawing.Point(0, 90);
+            this.DelSub.Location = new System.Drawing.Point(0, 135);
             this.DelSub.Name = "DelSub";
             this.DelSub.Size = new System.Drawing.Size(141, 35);
             this.DelSub.TabIndex = 1;
             this.DelSub.Text = "Удалить";
             this.DelSub.UseVisualStyleBackColor = false;
+            this.DelSub.EnabledChanged += new System.EventHandler(this.DelSub_EnabledChanged);
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Transparent;
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(0, 125);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(141, 10);
+            this.panel14.TabIndex = 6;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 90);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(141, 35);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Экспортировать";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // panel10
             // 
@@ -151,6 +190,7 @@
             this.EditSub.TabIndex = 0;
             this.EditSub.Text = "Редактировать";
             this.EditSub.UseVisualStyleBackColor = false;
+            this.EditSub.EnabledChanged += new System.EventHandler(this.EditSub_EnabledChanged);
             // 
             // panel9
             // 
@@ -175,6 +215,7 @@
             this.NewSub.TabIndex = 2;
             this.NewSub.Text = "Новый предмет";
             this.NewSub.UseVisualStyleBackColor = false;
+            this.NewSub.Click += new System.EventHandler(this.NewSub_Click);
             // 
             // panel7
             // 
@@ -184,7 +225,7 @@
             this.panel7.Controls.Add(this.SubjectsList);
             this.panel7.Location = new System.Drawing.Point(34, 21);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(411, 436);
+            this.panel7.Size = new System.Drawing.Size(411, 356);
             this.panel7.TabIndex = 0;
             // 
             // SubjectsList
@@ -197,7 +238,7 @@
             this.SubjectsList.ItemHeight = 21;
             this.SubjectsList.Location = new System.Drawing.Point(0, 0);
             this.SubjectsList.Name = "SubjectsList";
-            this.SubjectsList.Size = new System.Drawing.Size(411, 436);
+            this.SubjectsList.Size = new System.Drawing.Size(411, 356);
             this.SubjectsList.TabIndex = 0;
             this.SubjectsList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.SubjectsList_DrawItem);
             this.SubjectsList.SelectedIndexChanged += new System.EventHandler(this.SubjectsList_SelectedIndexChanged);
@@ -250,6 +291,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(604, 73);
             this.panel3.TabIndex = 0;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel3_Paint);
             // 
             // label2
             // 
@@ -261,14 +303,92 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Редактирование предметов";
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.button1);
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Controls.Add(this.panel13);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel11.Location = new System.Drawing.Point(0, 538);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(604, 166);
+            this.panel11.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(16)))), ((int)(((byte)(105)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(31, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(202, 35);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Импортировать задание";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.label5);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 41);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(604, 41);
+            this.panel12.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.label5.Location = new System.Drawing.Point(31, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(526, 26);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "С помощью данной опции вы можете добавить уже существующий файл предмета с задани" +
+    "ями.\r\nПросто нажмите кнопку и выберите файл содержащий задания.\r\n";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.label6);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(604, 41);
+            this.panel13.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(26, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 30);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Импорт";
+            // 
+            // ChildViever
+            // 
+            this.ChildViever.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChildViever.BackColor = System.Drawing.Color.Transparent;
+            this.ChildViever.Location = new System.Drawing.Point(0, 0);
+            this.ChildViever.Name = "ChildViever";
+            this.ChildViever.Size = new System.Drawing.Size(604, 704);
+            this.ChildViever.TabIndex = 2;
+            this.ChildViever.Paint += new System.Windows.Forms.PaintEventHandler(this.ChildViever_Paint);
+            // 
             // TasksSettingsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.ChildViever);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(604, 506);
             this.Name = "TasksSettingsPanel";
             this.Size = new System.Drawing.Size(604, 704);
             this.Load += new System.EventHandler(this.TasksSettingsPanel_Load);
@@ -284,6 +404,11 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -308,5 +433,14 @@
         private System.Windows.Forms.Button EditSub;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel ChildViever;
     }
 }

@@ -71,6 +71,12 @@
     <Compile Include="Forms\Setings.Designer.cs">
       <DependentUpon>Setings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SetingsPages\EditSub.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SetingsPages\EditSub.Designer.cs">
+      <DependentUpon>EditSub.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SetingsPages\ProfileSettingsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setings.resx">
       <DependentUpon>Setings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetingsPages\EditSub.resx">
+      <DependentUpon>EditSub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetingsPages\ProfileSettingsPanel.resx">
       <DependentUpon>ProfileSettingsPanel.cs</DependentUpon>
@@ -149,6 +158,7 @@
     <None Include="imgs\settings.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="imgs\arrow-left.png" />
     <Content Include="imgs\briefcase.png" />
     <Content Include="imgs\calendar.png" />
     <Content Include="imgs\database.png" />

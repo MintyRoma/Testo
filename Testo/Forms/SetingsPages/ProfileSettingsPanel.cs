@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Testo.Forms.SetingsPages
 {
-    public partial class ProfileSettingsPanel : UserControl
+    public partial class ProfileSettingsPanel : SetingsPanel
     {
         private bool changepas = false;
         private Classes.Teacher teacher;

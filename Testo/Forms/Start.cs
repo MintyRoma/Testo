@@ -94,6 +94,8 @@ namespace Testo
 
         private void Start_Load(object sender, EventArgs e)
         {
+            if (!Directory.Exists("Subjects")) Directory.CreateDirectory("Subjects");
+            string[] files = Directory.GetFiles("Subjects");
 
         }
 
