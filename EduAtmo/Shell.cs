@@ -66,6 +66,7 @@ namespace EduAtmo
         /// <returns>string[]</returns>
         public static string[] FindSubs()
         {
+            if (!Directory.Exists("Subjects")) Directory.CreateDirectory("Subjects");
             string[] subs = Directory.GetFiles("Subjects");
             List<string> subjectsInFolder = new List<string>();
             foreach (string sub in subs)

@@ -52,12 +52,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DefaultMessages.cs" />
     <Compile Include="Classes\Teacher.cs" />
     <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FirstStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FirstStart.Designer.cs">
+      <DependentUpon>FirstStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NoProfilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NoProfilesForm.Designer.cs">
+      <DependentUpon>NoProfilesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NoUACConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NoUACConfirmation.Designer.cs">
+      <DependentUpon>NoUACConfirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Security.cs">
       <SubType>Form</SubType>
@@ -105,6 +124,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FirstStart.resx">
+      <DependentUpon>FirstStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NoProfilesForm.resx">
+      <DependentUpon>NoProfilesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NoUACConfirmation.resx">
+      <DependentUpon>NoUACConfirmation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Security.resx">
       <DependentUpon>Security.cs</DependentUpon>
@@ -167,6 +195,11 @@
     <Content Include="imgs\log-out.png" />
     <Content Include="imgs\trending-up.png" />
     <Content Include="imgs\users.png" />
+    <None Include="Resources\StatusSecurityWarning_16x.png" />
+    <None Include="imgs\StatusOK_16x.png" />
+    <None Include="imgs\StatusWarning_16x.png" />
+    <None Include="imgs\FileExclude_16x1.png" />
+    <None Include="imgs\FileExclude_16x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Components\" />

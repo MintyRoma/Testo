@@ -39,7 +39,7 @@ namespace Testo
         {
             if (!File.Exists("profiles.xml"))
             {
-                MessageBox.Show("Отсутствуют файлы профилей учителей!\nЗапустите средство восстановления программы repair.exe", "Нарушение целостности программы", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Отсутствуют файлы профилей учителей!\nПерезапустите приложение", "Нарушение целостности программы", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

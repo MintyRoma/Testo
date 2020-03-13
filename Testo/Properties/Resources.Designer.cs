@@ -123,6 +123,16 @@ namespace Testo.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FileExclude_16x1 {
+            get {
+                object obj = ResourceManager.GetObject("FileExclude_16x1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap git {
             get {
                 object obj = ResourceManager.GetObject("git", resourceCulture);
@@ -156,6 +166,36 @@ namespace Testo.Properties {
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StatusOK_16x {
+            get {
+                object obj = ResourceManager.GetObject("StatusOK_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StatusSecurityWarning_16x {
+            get {
+                object obj = ResourceManager.GetObject("StatusSecurityWarning_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StatusWarning_16x {
+            get {
+                object obj = ResourceManager.GetObject("StatusWarning_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

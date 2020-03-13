@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using System.IO;
-using Testo.Forms;
 
-namespace Testo
+namespace repair
 {
     static class Program
     {
@@ -13,13 +11,11 @@ namespace Testo
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (args.Contains("CreateConfig")) Application.Run(new FirstStart());
-            else if (File.Exists("profiles.xml")) Application.Run(new Start());
-            else Application.Run(new Forms.NoProfilesForm());
+            Application.Run(new Form1());
         }
     }
 }
