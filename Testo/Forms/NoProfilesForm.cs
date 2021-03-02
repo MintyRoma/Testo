@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Security.Principal;
+using MetroFramework.Forms;
 
 namespace Testo.Forms
 {
-    public partial class NoProfilesForm : Form
+    public partial class NoProfilesForm : MetroForm
     {
         public NoProfilesForm()
         {
@@ -20,8 +21,7 @@ namespace Testo.Forms
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-            NoUACConfirmation frm = new NoUACConfirmation();
-            frm.Activated+=RepairConfig;
+            NoUACConfirmationForm frm = new NoUACConfirmationForm();
             frm.ShowDialog();
         }
 
@@ -64,6 +64,11 @@ namespace Testo.Forms
         }
 
         private void NoProfilesForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

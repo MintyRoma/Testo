@@ -17,7 +17,7 @@ namespace Testo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (args.Contains("CreateConfig")) Application.Run(new FirstStart());
+            if (args.Contains("CreateConfig")) Application.Run(new SetUp());
             else if (File.Exists("profiles.xml")) Application.Run(new Start());
             else Application.Run(new Forms.NoProfilesForm());
         }

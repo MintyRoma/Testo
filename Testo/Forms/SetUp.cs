@@ -9,10 +9,11 @@ using System.Windows.Forms;
 using System.Xml;
 using System.IO;
 using System.Security.Cryptography;
+using MetroFramework.Forms;
 
 namespace Testo.Forms
 {
-    public partial class FirstStart : Form
+    public partial class SetUp : MetroForm
     {
         private bool pasnotnul = false;
         public bool PassNotNull
@@ -30,15 +31,15 @@ namespace Testo.Forms
             ErrMsg.Text = "";
             if (!PassNotNull || !PassConfirmation)
             {
-                PassTxtboxStat.Image = Testo.Properties.Resources.StatusWarning_16x;
-                ConfirmTxtboxStat.Image = Properties.Resources.StatusWarning_16x;
+                PassTxtboxStat.Image = Testo.Properties.Resources.Alert;
+                ConfirmTxtboxStat.Image = Properties.Resources.Alert;
                 if (!PassConfirmation) ErrMsg.Text = Classes.DefaultMessages.ERRORWrongPassConfirmation;
                 if (!PassNotNull) ErrMsg.Text = Classes.DefaultMessages.ERRORPassIsNull;
             }
             else
             {
-                PassTxtboxStat.Image = Testo.Properties.Resources.StatusOK_16x;
-                ConfirmTxtboxStat.Image = Properties.Resources.StatusOK_16x;
+                PassTxtboxStat.Image = Testo.Properties.Resources.Check;
+                ConfirmTxtboxStat.Image = Properties.Resources.Check;
             }
         }
 
@@ -56,7 +57,7 @@ namespace Testo.Forms
         {
             if (PassConfirmation)
             {
-                button1.BackColor = Color.FromArgb(55, 16, 105);
+                button1.BackColor = Color.FromArgb(0, 174, 219);
                 button1.ForeColor = Color.White;
                 button1.Enabled = true;
             }
@@ -68,7 +69,7 @@ namespace Testo.Forms
             }
         }
 
-        public FirstStart()
+        public SetUp()
         {
             InitializeComponent();
             UpdateGoButton();
@@ -144,6 +145,11 @@ namespace Testo.Forms
             else PassConfirmation = false;
             if (PassTxtBox.Text == "") PassNotNull = false;
             else PassNotNull = true;
+        }
+
+        private void FirstStartForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

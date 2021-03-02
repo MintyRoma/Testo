@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using Testo.Classes;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace Testo.Forms
 {
-    public partial class Setings : Form
+    public partial class SetingsForm : MetroForm
     {
         private Teacher tch = new Teacher("", "");
         public Teacher EditableTeacher
@@ -24,8 +25,6 @@ namespace Testo.Forms
             }
         }
 
-        private Color accentColor = Color.FromArgb(119, 0, 255);
-        private Font accentFont = new Font("Segoe UI Semibold", 12.0f);
         private Font defFont = new Font("Segoe UI", 12.0f);
         SetingsPages.SetingsPanel panel;
         public enum mode_selecter
@@ -50,7 +49,7 @@ namespace Testo.Forms
             }
         }
 
-        public Setings()
+        public SetingsForm()
         {
             InitializeComponent();
             ModeChanged += ChangeMode;
@@ -89,6 +88,7 @@ namespace Testo.Forms
         private void ActivateButton(Button btn)
         {
             btn.BackColor = Color.FromArgb(55, 16, 105);
+            btn.ForeColor = Color.White;
         }
 
         private void PreparePanel()
@@ -99,8 +99,8 @@ namespace Testo.Forms
             {
                 if (!(btn is Button)) continue; 
                 if (btn.Name == "ExitBtn" || btn.Name == "NotTouch") continue;
-                btn.ForeColor = Color.White;
-                btn.BackColor = Color.FromArgb(55,55,55) ;
+                btn.ForeColor = Color.Black;
+                btn.BackColor = Color.White ;
                 btn.Font = defFont;
             }
         }
@@ -126,6 +126,11 @@ namespace Testo.Forms
         }
 
         private void MenuPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

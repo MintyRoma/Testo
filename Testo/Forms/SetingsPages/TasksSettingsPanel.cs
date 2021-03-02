@@ -14,33 +14,6 @@ namespace Testo.Forms.SetingsPages
     {
 
         private SetingsPanel sp;
-        public SetingsPanel ChildPanel
-        {
-            get { return sp; }
-            private set
-            {
-                sp = value;
-                ShowChild();
-                ChildChanged?.Invoke(this, EventArgs.Empty);
-                sp.ChildClosed += ChildClosedReaction;
-            }
-        }
-
-        private void ChildClosedReaction()
-        {
-            ChildPanel = new SetingsPanel();
-            ChildViever.Hide();
-        }
-
-        private void ShowChild()
-        {
-            ChildPanel.Dock = DockStyle.Fill;
-            ChildViever.Controls.Add(ChildPanel);
-            ChildViever.Show();
-        }
-
-        public delegate void chilchanged(object sender, EventArgs e);
-        public event chilchanged ChildChanged;
 
         List<string> files = new List<string>();
         public TasksSettingsPanel()
@@ -51,7 +24,7 @@ namespace Testo.Forms.SetingsPages
             Subs = Directory.GetFiles("Subjects");
             foreach (string fil in Subs)
             {
-                if (!(fil.EndsWith(".fos"))) continue;
+                if (!(fil.EndsWith(".sbj"))) continue;
                 else
                 {
                     files.Add((fil.Substring(0, fil.Length - ".fos".Length)).Split('\\')[1]);
@@ -63,11 +36,6 @@ namespace Testo.Forms.SetingsPages
             }
             EditSub.Enabled = false;
             DelSub.Enabled = false;
-        }
-
-        private void TasksSettingsPanel_Load(object sender, EventArgs e)
-        {
-            ChildViever.Hide();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -136,7 +104,10 @@ namespace Testo.Forms.SetingsPages
         private void NewSub_Click(object sender, EventArgs e)
         {
             EditSub es = new EditSub();
-            ChildPanel = es;
+            Classes.Subject copy = new Classes.Subject();
+            copy.Import(SubjectsList.Items[SubjectsList.SelectedIndex].ToString() + ".fos");
+            EditSubjectForm edit = new EditSubjectForm(copy);
+            edit.ShowDialog();
         }
 
         private void ClosedEdit()
@@ -152,6 +123,14 @@ namespace Testo.Forms.SetingsPages
         private void ChildViever_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void EditSub_Click(object sender, EventArgs e)
+        {
+            string file = Directory.GetCurrentDirectory()+"\\Subjects\\"+(string)SubjectsList.Items[SubjectsList.SelectedIndex] + ".sbj";
+            Classes.Subject sub = new Classes.Subject();
+            sub.Import(file);
+            EditSubjectForm sb = new EditSubjectForm(sub);
         }
     }
 }

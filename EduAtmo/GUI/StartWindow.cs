@@ -65,5 +65,10 @@ namespace EduAtmo
             Shell.StartTest(FIOBox.Text, GroupNameBox.Text);
             this.Hide();
         }
+
+        private void StartWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

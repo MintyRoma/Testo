@@ -54,7 +54,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.ChildViever = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -191,6 +190,7 @@
             this.EditSub.Text = "Редактировать";
             this.EditSub.UseVisualStyleBackColor = false;
             this.EditSub.EnabledChanged += new System.EventHandler(this.EditSub_EnabledChanged);
+            this.EditSub.Click += new System.EventHandler(this.EditSub_Click);
             // 
             // panel9
             // 
@@ -277,7 +277,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(26, 11);
+            this.label3.Location = new System.Drawing.Point(29, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(192, 30);
             this.label3.TabIndex = 0;
@@ -368,30 +368,16 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Импорт";
             // 
-            // ChildViever
-            // 
-            this.ChildViever.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ChildViever.BackColor = System.Drawing.Color.Transparent;
-            this.ChildViever.Location = new System.Drawing.Point(0, 0);
-            this.ChildViever.Name = "ChildViever";
-            this.ChildViever.Size = new System.Drawing.Size(604, 704);
-            this.ChildViever.TabIndex = 2;
-            this.ChildViever.Paint += new System.Windows.Forms.PaintEventHandler(this.ChildViever_Paint);
-            // 
             // TasksSettingsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.ChildViever);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel1);
             this.Name = "TasksSettingsPanel";
             this.Size = new System.Drawing.Size(604, 704);
-            this.Load += new System.EventHandler(this.TasksSettingsPanel_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -441,6 +427,5 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel ChildViever;
     }
 }

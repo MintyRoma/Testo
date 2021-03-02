@@ -8,10 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml;
+using MetroFramework.Forms;
 
 namespace Testo.Forms
 {
-    public partial class Security : Form
+    public partial class SecurityForm : MetroForm
     {
         private Form nxt = new Form();
         private List<Classes.Teacher> teachers = new List<Classes.Teacher>();
@@ -28,7 +29,7 @@ namespace Testo.Forms
         public delegate void validteacher(object sender, Classes.Teacher teacher);
         public event validteacher TeacherValidated;
 
-        public Security(Form NextForm)
+        public SecurityForm(Form NextForm)
         {
             InitializeComponent();
             ImportTeachers();
@@ -115,7 +116,7 @@ namespace Testo.Forms
                 else
                 {
                     textBox1.Text = "";
-                    statuslabel.ForeColor = Color.OrangeRed;
+                    statuslabel.ForeColor = Color.FromArgb(209, 17, 65);
                     statuslabel.Text = "Не существует ни одного пользователя с таким паролем!\nПовторите попытку снова!";
                     AccessDenied?.Invoke(this, EventArgs.Empty);
                 }
@@ -133,6 +134,31 @@ namespace Testo.Forms
             {
                 Confirm();
             }
+        }
+
+        private void TextBox1_ButtonClick(object sender, EventArgs e)
+        {
+            Confirm();
+        }
+
+        private void TextBox1_ButtonClick_1(object sender, EventArgs e)
+        {
+            Confirm();
+        }
+
+        private void TextBox1_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) Confirm();
+        }
+
+        private void Statuslabel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SecurityForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SecurityCanceled?.Invoke(this,EventArgs.Empty);
         }
     }
 }

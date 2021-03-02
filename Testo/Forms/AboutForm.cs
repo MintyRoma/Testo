@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Testo.Forms
 {
-    public partial class About : Form
+    public partial class AboutForm : MetroForm
     {
-        public About()
+        public AboutForm()
         {
             InitializeComponent();
         }
@@ -24,6 +25,11 @@ namespace Testo.Forms
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AboutForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
