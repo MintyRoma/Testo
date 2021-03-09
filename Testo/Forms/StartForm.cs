@@ -10,12 +10,14 @@ using System.IO;
 using Testo.Forms;
 using MetroFramework.Forms;
 using MetroFramework.Controls;
+using Testo.Classes;
 
 namespace Testo
 {
     public partial class Start : MetroForm
     {
-        SetingsForm set = new SetingsForm();
+        private SetingsForm set = new SetingsForm();
+        private List<MetroTile> tiles = new List<MetroTile>();
         public Start()
         {
             InitializeComponent();
@@ -48,39 +50,26 @@ namespace Testo
             }
             else
             {
-                set = new SetingsForm();
-                SecurityForm sc = new SecurityForm(set);
-                sc.FormClosing += SecurityClosing;
-                sc.SecurityCanceled += SecurityCanceled;
-                sc.TeacherValidated += SendTeacherToSetings;
-                sc.Size = this.Size;
-                sc.Show();
-                sc.Location = this.Location;
-                System.Threading.Thread.Sleep(10);
+                SecurityForm sc = new SecurityForm();
+                sc.AccessAllowed += ShowSettings;
+                sc.ShowDialog();
             }
         }
 
-        private void SendTeacherToSetings(object sender, Classes.Teacher tch)
+        private void ShowSettings(object sender, Teacher teacher)
         {
-            set.EditableTeacher = tch;
+            SetingsForm sets = new SetingsForm(teacher);
+            sets.Show();
             this.Hide();
+            sets.FormClosed += ShowAgain;
         }
 
-        private void SecurityCanceled(object sender, EventArgs e)
+        private void ShowAgain(object sender, FormClosedEventArgs e)
         {
-            Form frm = (Form)sender;
-            this.Size = frm.Size;
             this.Show();
-            this.Location = frm.Location;
-            SecurityForm sc = (SecurityForm)frm;
-            sc.FormClosing -= SecurityClosing;
-            frm.Close();
         }
 
-        private void SecurityClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Close();
-        }
+
 
         private void NametxtBox_Enter(object sender, EventArgs e)
         {
@@ -139,6 +128,7 @@ namespace Testo
             {
                 foreach (string filename in subjects)
                 {
+                    
                     MetroFramework.Controls.MetroTile tile = new MetroFramework.Controls.MetroTile();
                     tile.Text = filename;
                     tile.AutoSize = true;
@@ -146,19 +136,29 @@ namespace Testo
                     tile.Width = 200;
                     tile.UseCustomBackColor = true;
                     tile.BackColor = MetroFramework.MetroColors.Purple;
-                    PlaceTile(tile);
+                    tiles.Add(tile);
+                }
+                PlaceTiles(tiles);
+            }
+        }
+
+        private void PlaceTiles(List<MetroTile> tiles)
+        {
+            int x = 10;
+            int y = 10;
+            foreach (Button btn in tiles)
+            {
+                btn.Location = new Point(x, y);
+                SubjectSelector.Controls.Add(btn);
+                x = x + 10 + btn.Width;
+                if (x+btn.Width+10>=SubjectSelector.Width)
+                {
+                    x = 10;
+                    y = y + 10 + btn.Height;
                 }
             }
         }
 
-        private void PlaceTile(MetroTile tile)
-        {
-            int placed = SubjectSelector.Controls.Count;
-            Point gridLocation = new Point(placed / 3+1, placed % 3 + 1);
-            Point tileLocation = new Point(gridLocation.X * 10 + (gridLocation.X - 1) * 200, gridLocation.Y * 10 + (gridLocation.Y - 1) * 100);
-            tile.Location = tileLocation;
-            SubjectSelector.Controls.Add(tile);
-        }
 
         private void GoToGit_Click(object sender, EventArgs e)
         {
@@ -191,6 +191,11 @@ namespace Testo
         private void SubjectSelector_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Start_SizeChanged(object sender, EventArgs e)
+        {
+            PlaceTiles(tiles);
         }
     }
 }

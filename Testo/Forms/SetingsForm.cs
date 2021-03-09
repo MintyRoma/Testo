@@ -56,6 +56,14 @@ namespace Testo.Forms
             Mode = mode_selecter.profile;
         }
 
+        public SetingsForm(Teacher teacher)
+        {
+            tch = teacher;
+            InitializeComponent();
+            ModeChanged += ChangeMode;
+            Mode = mode_selecter.profile;
+        }
+
         private void UpdateData(object sender, EventArgs e)
         {
             ChangeMode(this,"");

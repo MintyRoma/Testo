@@ -286,7 +286,9 @@
             // 
             // SubjectSelector
             // 
+            this.SubjectSelector.AutoScroll = true;
             this.SubjectSelector.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SubjectSelector.HorizontalScrollbar = true;
             this.SubjectSelector.HorizontalScrollbarBarColor = true;
             this.SubjectSelector.HorizontalScrollbarHighlightOnWheel = false;
             this.SubjectSelector.HorizontalScrollbarSize = 10;
@@ -294,10 +296,11 @@
             this.SubjectSelector.Name = "SubjectSelector";
             this.SubjectSelector.Size = new System.Drawing.Size(670, 349);
             this.SubjectSelector.TabIndex = 3;
+            this.SubjectSelector.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.SubjectSelector.VerticalScrollbar = true;
             this.SubjectSelector.VerticalScrollbarBarColor = true;
             this.SubjectSelector.VerticalScrollbarHighlightOnWheel = false;
             this.SubjectSelector.VerticalScrollbarSize = 10;
-            this.SubjectSelector.Paint += new System.Windows.Forms.PaintEventHandler(this.SubjectSelector_Paint);
             // 
             // Start
             // 
@@ -312,6 +315,7 @@
             this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "Давайте представимся";
             this.Load += new System.EventHandler(this.Start_Load);
+            this.SizeChanged += new System.EventHandler(this.Start_SizeChanged);
             this.Resize += new System.EventHandler(this.Start_Resize);
             this.PersonalDataPanel.ResumeLayout(false);
             this.PersonalDataPanel.PerformLayout();
