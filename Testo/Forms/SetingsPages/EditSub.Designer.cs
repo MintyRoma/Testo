@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.NameTxtBox = new System.Windows.Forms.TextBox();
-            this.AllowReamakeChckBox = new System.Windows.Forms.CheckBox();
+            this.NameTxtBox = new MetroFramework.Controls.MetroTextBox();
+            this.AllowReamakeChckBox = new MetroFramework.Controls.MetroCheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -42,19 +42,19 @@
             this.AmountDescription = new System.Windows.Forms.Label();
             this.AmountLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.LimitTasksChckBox = new System.Windows.Forms.CheckBox();
+            this.LimitTasksChckBox = new MetroFramework.Controls.MetroCheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.TimeUpDown = new System.Windows.Forms.NumericUpDown();
             this.TimeDescription = new System.Windows.Forms.Label();
             this.TimeLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.UseTimeChckBox = new System.Windows.Forms.CheckBox();
+            this.UseTimeChckBox = new MetroFramework.Controls.MetroCheckBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.RandomTasksChckBox = new System.Windows.Forms.CheckBox();
+            this.RandomTasksChckBox = new MetroFramework.Controls.MetroCheckBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.ShowRightChckBox = new System.Windows.Forms.CheckBox();
+            this.ShowRightChckBox = new MetroFramework.Controls.MetroCheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -70,7 +70,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.metroLabel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -78,16 +78,16 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
-            // label1
+            // metroLabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.label1.Location = new System.Drawing.Point(48, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(295, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Настройки предмета\r\n";
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.Location = new System.Drawing.Point(49, 22);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(175, 25);
+            this.metroLabel1.TabIndex = 1;
+            this.metroLabel1.Text = "Настройки предмета";
+            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
@@ -123,22 +123,43 @@
             // 
             // NameTxtBox
             // 
-            this.NameTxtBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            // 
+            // 
+            // 
+            this.NameTxtBox.CustomButton.Image = null;
+            this.NameTxtBox.CustomButton.Location = new System.Drawing.Point(448, 1);
+            this.NameTxtBox.CustomButton.Name = "";
+            this.NameTxtBox.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.NameTxtBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.NameTxtBox.CustomButton.TabIndex = 1;
+            this.NameTxtBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.NameTxtBox.CustomButton.UseSelectable = true;
+            this.NameTxtBox.CustomButton.Visible = false;
+            this.NameTxtBox.Lines = new string[0];
             this.NameTxtBox.Location = new System.Drawing.Point(55, 52);
+            this.NameTxtBox.MaxLength = 32767;
             this.NameTxtBox.Name = "NameTxtBox";
+            this.NameTxtBox.PasswordChar = '\0';
+            this.NameTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.NameTxtBox.SelectedText = "";
+            this.NameTxtBox.SelectionLength = 0;
+            this.NameTxtBox.SelectionStart = 0;
+            this.NameTxtBox.ShortcutsEnabled = true;
             this.NameTxtBox.Size = new System.Drawing.Size(476, 29);
             this.NameTxtBox.TabIndex = 0;
+            this.NameTxtBox.UseSelectable = true;
+            this.NameTxtBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.NameTxtBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // AllowReamakeChckBox
             // 
             this.AllowReamakeChckBox.AutoSize = true;
-            this.AllowReamakeChckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AllowReamakeChckBox.Location = new System.Drawing.Point(34, 12);
             this.AllowReamakeChckBox.Name = "AllowReamakeChckBox";
-            this.AllowReamakeChckBox.Size = new System.Drawing.Size(186, 25);
+            this.AllowReamakeChckBox.Size = new System.Drawing.Size(143, 15);
             this.AllowReamakeChckBox.TabIndex = 0;
             this.AllowReamakeChckBox.Text = "Разрешить пересдачу";
-            this.AllowReamakeChckBox.UseVisualStyleBackColor = true;
+            this.AllowReamakeChckBox.UseSelectable = true;
             this.AllowReamakeChckBox.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // label2
@@ -227,13 +248,12 @@
             // LimitTasksChckBox
             // 
             this.LimitTasksChckBox.AutoSize = true;
-            this.LimitTasksChckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LimitTasksChckBox.Location = new System.Drawing.Point(34, 12);
             this.LimitTasksChckBox.Name = "LimitTasksChckBox";
-            this.LimitTasksChckBox.Size = new System.Drawing.Size(264, 25);
+            this.LimitTasksChckBox.Size = new System.Drawing.Size(203, 30);
             this.LimitTasksChckBox.TabIndex = 0;
             this.LimitTasksChckBox.Text = "Ограничить количество заданий\r\n";
-            this.LimitTasksChckBox.UseVisualStyleBackColor = true;
+            this.LimitTasksChckBox.UseSelectable = true;
             this.LimitTasksChckBox.CheckedChanged += new System.EventHandler(this.LimitTasksChckBox_CheckedChanged);
             // 
             // panel7
@@ -301,13 +321,12 @@
             // UseTimeChckBox
             // 
             this.UseTimeChckBox.AutoSize = true;
-            this.UseTimeChckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UseTimeChckBox.Location = new System.Drawing.Point(34, 12);
             this.UseTimeChckBox.Name = "UseTimeChckBox";
-            this.UseTimeChckBox.Size = new System.Drawing.Size(322, 25);
+            this.UseTimeChckBox.Size = new System.Drawing.Size(245, 30);
             this.UseTimeChckBox.TabIndex = 0;
             this.UseTimeChckBox.Text = "Установить таймер для каждого задания\r\n";
-            this.UseTimeChckBox.UseVisualStyleBackColor = true;
+            this.UseTimeChckBox.UseSelectable = true;
             this.UseTimeChckBox.CheckedChanged += new System.EventHandler(this.UseTimeChckBox_CheckedChanged);
             // 
             // panel6
@@ -335,13 +354,12 @@
             // RandomTasksChckBox
             // 
             this.RandomTasksChckBox.AutoSize = true;
-            this.RandomTasksChckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RandomTasksChckBox.Location = new System.Drawing.Point(34, 12);
             this.RandomTasksChckBox.Name = "RandomTasksChckBox";
-            this.RandomTasksChckBox.Size = new System.Drawing.Size(247, 25);
+            this.RandomTasksChckBox.Size = new System.Drawing.Size(190, 15);
             this.RandomTasksChckBox.TabIndex = 0;
             this.RandomTasksChckBox.Text = "Задания в случайном порядке";
-            this.RandomTasksChckBox.UseVisualStyleBackColor = true;
+            this.RandomTasksChckBox.UseSelectable = true;
             this.RandomTasksChckBox.CheckedChanged += new System.EventHandler(this.RandomTasksChckBox_CheckedChanged);
             // 
             // panel5
@@ -359,7 +377,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label5.Location = new System.Drawing.Point(52, 40);
+            this.label5.Location = new System.Drawing.Point(52, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(387, 13);
             this.label5.TabIndex = 1;
@@ -368,13 +386,12 @@
             // ShowRightChckBox
             // 
             this.ShowRightChckBox.AutoSize = true;
-            this.ShowRightChckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ShowRightChckBox.Location = new System.Drawing.Point(34, 12);
             this.ShowRightChckBox.Name = "ShowRightChckBox";
-            this.ShowRightChckBox.Size = new System.Drawing.Size(215, 25);
+            this.ShowRightChckBox.Size = new System.Drawing.Size(165, 15);
             this.ShowRightChckBox.TabIndex = 0;
             this.ShowRightChckBox.Text = "Показывать верный ответ";
-            this.ShowRightChckBox.UseVisualStyleBackColor = true;
+            this.ShowRightChckBox.UseSelectable = true;
             this.ShowRightChckBox.CheckedChanged += new System.EventHandler(this.ShowRightChckBox_CheckedChanged);
             // 
             // panel4
@@ -396,7 +413,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "EditSub";
-            this.Size = new System.Drawing.Size(604, 1136);
+            this.Size = new System.Drawing.Size(604, 608);
             this.Load += new System.EventHandler(this.EditSub_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -422,12 +439,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckBox AllowReamakeChckBox;
+        private MetroFramework.Controls.MetroCheckBox AllowReamakeChckBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox NameTxtBox;
+        private MetroFramework.Controls.MetroTextBox NameTxtBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel7;
@@ -435,19 +451,20 @@
         private System.Windows.Forms.Label TimeDescription;
         private System.Windows.Forms.Label TimeLabel;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox UseTimeChckBox;
+        private MetroFramework.Controls.MetroCheckBox UseTimeChckBox;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox RandomTasksChckBox;
+        private MetroFramework.Controls.MetroCheckBox RandomTasksChckBox;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox ShowRightChckBox;
+        private MetroFramework.Controls.MetroCheckBox ShowRightChckBox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.NumericUpDown TasksAmountUpDown;
         private System.Windows.Forms.Label AmountDescription;
         private System.Windows.Forms.Label AmountLabel;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.CheckBox LimitTasksChckBox;
+        private MetroFramework.Controls.MetroCheckBox LimitTasksChckBox;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }

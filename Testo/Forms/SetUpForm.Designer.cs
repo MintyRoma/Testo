@@ -1,6 +1,6 @@
 ﻿namespace Testo.Forms
 {
-    partial class SetUp
+    partial class SetUpForm
     {
         /// <summary>
         /// Required designer variable.

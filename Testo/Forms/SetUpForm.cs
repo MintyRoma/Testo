@@ -13,7 +13,7 @@ using MetroFramework.Forms;
 
 namespace Testo.Forms
 {
-    public partial class SetUp : MetroForm
+    public partial class SetUpForm : MetroForm
     {
         private bool pasnotnul = false;
         public bool PassNotNull
@@ -69,7 +69,7 @@ namespace Testo.Forms
             }
         }
 
-        public SetUp()
+        public SetUpForm()
         {
             InitializeComponent();
             UpdateGoButton();

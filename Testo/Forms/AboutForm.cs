@@ -31,5 +31,10 @@ namespace Testo.Forms
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

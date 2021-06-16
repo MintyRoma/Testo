@@ -96,7 +96,7 @@
             this.passwordTxtBox.ShowClearButton = true;
             this.passwordTxtBox.Size = new System.Drawing.Size(326, 30);
             this.passwordTxtBox.Style = MetroFramework.MetroColorStyle.Yellow;
-            this.passwordTxtBox.TabIndex = 3;
+            this.passwordTxtBox.TabIndex = 1;
             this.passwordTxtBox.UseSelectable = true;
             this.passwordTxtBox.WaterMark = "Введите пароль здесь";
             this.passwordTxtBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -107,6 +107,7 @@
             // 
             this.statuslabel.BackColor = System.Drawing.Color.White;
             this.statuslabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.statuslabel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.statuslabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statuslabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.statuslabel.Location = new System.Drawing.Point(23, 23);
@@ -114,7 +115,7 @@
             this.statuslabel.Name = "statuslabel";
             this.statuslabel.ReadOnly = true;
             this.statuslabel.Size = new System.Drawing.Size(464, 42);
-            this.statuslabel.TabIndex = 2;
+            this.statuslabel.TabIndex = 10000;
             this.statuslabel.Text = "Для подтверждения введите пароль учителя\r\n";
             this.statuslabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

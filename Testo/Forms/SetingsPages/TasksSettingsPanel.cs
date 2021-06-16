@@ -103,10 +103,8 @@ namespace Testo.Forms.SetingsPages
 
         private void NewSub_Click(object sender, EventArgs e)
         {
-            EditSub es = new EditSub();
-            Classes.Subject copy = new Classes.Subject();
-            copy.Import(SubjectsList.Items[SubjectsList.SelectedIndex].ToString() + ".fos");
-            EditSubjectForm edit = new EditSubjectForm(copy);
+            EditSubjectForm es = new EditSubjectForm();
+            EditSubjectForm edit = new EditSubjectForm();
             edit.ShowDialog();
         }
 

@@ -37,6 +37,7 @@
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.SubjectSelector = new MetroFramework.Controls.MetroPanel();
             this.GoToGit = new System.Windows.Forms.PictureBox();
             this.GoToSetings = new System.Windows.Forms.PictureBox();
             this.statusBar = new System.Windows.Forms.Panel();
@@ -44,7 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SubjectSelector = new MetroFramework.Controls.MetroPanel();
             this.PersonalDataPanel.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel1.SuspendLayout();
@@ -196,6 +196,24 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // SubjectSelector
+            // 
+            this.SubjectSelector.AutoScroll = true;
+            this.SubjectSelector.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SubjectSelector.HorizontalScrollbar = true;
+            this.SubjectSelector.HorizontalScrollbarBarColor = true;
+            this.SubjectSelector.HorizontalScrollbarHighlightOnWheel = false;
+            this.SubjectSelector.HorizontalScrollbarSize = 10;
+            this.SubjectSelector.Location = new System.Drawing.Point(0, 44);
+            this.SubjectSelector.Name = "SubjectSelector";
+            this.SubjectSelector.Size = new System.Drawing.Size(670, 349);
+            this.SubjectSelector.TabIndex = 3;
+            this.SubjectSelector.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.SubjectSelector.VerticalScrollbar = true;
+            this.SubjectSelector.VerticalScrollbarBarColor = true;
+            this.SubjectSelector.VerticalScrollbarHighlightOnWheel = false;
+            this.SubjectSelector.VerticalScrollbarSize = 10;
+            // 
             // GoToGit
             // 
             this.GoToGit.Dock = System.Windows.Forms.DockStyle.Left;
@@ -283,24 +301,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(45, 20);
             this.panel1.TabIndex = 2;
-            // 
-            // SubjectSelector
-            // 
-            this.SubjectSelector.AutoScroll = true;
-            this.SubjectSelector.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SubjectSelector.HorizontalScrollbar = true;
-            this.SubjectSelector.HorizontalScrollbarBarColor = true;
-            this.SubjectSelector.HorizontalScrollbarHighlightOnWheel = false;
-            this.SubjectSelector.HorizontalScrollbarSize = 10;
-            this.SubjectSelector.Location = new System.Drawing.Point(0, 44);
-            this.SubjectSelector.Name = "SubjectSelector";
-            this.SubjectSelector.Size = new System.Drawing.Size(670, 349);
-            this.SubjectSelector.TabIndex = 3;
-            this.SubjectSelector.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.SubjectSelector.VerticalScrollbar = true;
-            this.SubjectSelector.VerticalScrollbarBarColor = true;
-            this.SubjectSelector.VerticalScrollbarHighlightOnWheel = false;
-            this.SubjectSelector.VerticalScrollbarSize = 10;
             // 
             // Start
             // 

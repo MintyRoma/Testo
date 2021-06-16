@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using MetroFramework.Forms;
+using System;
 using Testo.Forms.SetingsPages;
-using Testo.Properties;
+
 
 namespace Testo.Forms
 {
-    public partial class EditSubjectForm : Form
+    public partial class EditSubjectForm : MetroForm
     {
         public EditSubjectForm()
         {
             InitializeComponent();
+            mode = Mode.setup;
         }
         public EditSubjectForm(Classes.Subject sub)
         {
@@ -49,7 +43,13 @@ namespace Testo.Forms
             TaskDetails.Controls.Clear();
             switch (mode)
             {
+                case Mode.setup:
+                    EditSub es = new EditSub();
+                    TaskDetails.Controls.Add(es);
+                    break;
                 case Mode.marks:
+                    MarksSetup mk = new MarksSetup();
+                    TaskDetails.Controls.Add(mk);
                     break;
                 default:
                     TaskDetails.Controls.Add(new EditSub());
@@ -66,6 +66,16 @@ namespace Testo.Forms
         private void SubEdit_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void SubjectsBtn_Click(object sender, EventArgs e)
+        {
+            mode = Mode.setup;
+        }
+
+        private void History_Click(object sender, EventArgs e)
+        {
+            mode = Mode.marks;
         }
     }
 }

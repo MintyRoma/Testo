@@ -81,11 +81,23 @@
     <Compile Include="Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetUp.cs">
+    <Compile Include="Forms\RuntimeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SetUp.Designer.cs">
-      <DependentUpon>SetUp.cs</DependentUpon>
+    <Compile Include="Forms\RuntimeForm.Designer.cs">
+      <DependentUpon>RuntimeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetingsPages\MarksSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SetingsPages\MarksSetup.Designer.cs">
+      <DependentUpon>MarksSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetUpForm.Designer.cs">
+      <DependentUpon>SetUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\NoProfilesForm.cs">
       <SubType>Form</SubType>
@@ -158,8 +170,14 @@
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SetUp.resx">
-      <DependentUpon>SetUp.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\RuntimeForm.resx">
+      <DependentUpon>RuntimeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetingsPages\MarksSetup.resx">
+      <DependentUpon>MarksSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetUpForm.resx">
+      <DependentUpon>SetUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NoProfilesForm.resx">
       <DependentUpon>NoProfilesForm.cs</DependentUpon>
@@ -255,6 +273,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Components\" />
+    <Folder Include="Forms\TestPages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
